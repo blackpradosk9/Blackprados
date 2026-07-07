@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Paws & Progress | Pet Boarding • Training • Grooming • Daycare</title>
-  <!-- Font Awesome 6 for icons -->
+  <title>BLACK PRADOS | Elite Pet Boarding • Training • Grooming • Daycare</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -14,68 +13,65 @@
     }
 
     :root {
-      /* Light mode (default) */
-      --bg: #f9f7f4;
+      --bg: #faf9f7;
       --surface: #ffffff;
-      --surface-alt: #f3efe9;
-      --text: #2e2e2e;
-      --text-secondary: #5e5e5e;
-      --primary: #d49c6b;
-      --primary-hover: #b87d4a;
-      --accent: #8b6b4b;
-      --border: #e0d6c8;
-      --shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-      --header-bg: rgba(255, 255, 255, 0.85);
-      --modal-overlay: rgba(0, 0, 0, 0.5);
+      --surface-alt: #f4f1ec;
+      --text: #1f1f1f;
+      --text-secondary: #5a554b;
+      --primary: #b8860b;
+      --primary-glow: #d4a017;
+      --accent: #3a3a3a;
+      --border: #ddd6cb;
+      --shadow: 0 12px 32px rgba(0,0,0,0.04);
+      --card-shadow: 0 10px 28px rgba(0,0,0,0.05);
+      --header-bg: rgba(255,255,255,0.88);
+      --modal-overlay: rgba(0,0,0,0.55);
       --input-bg: #ffffff;
-      --toggle-bg: #ddd;
+      --toggle-bg: #ccc;
       --toggle-circle: #fff;
     }
 
     body.dark {
-      --bg: #1e1e1e;
-      --surface: #2a2a2a;
-      --surface-alt: #333333;
-      --text: #f0eadc;
-      --text-secondary: #c0b7a8;
-      --primary: #d49c6b;
-      --primary-hover: #e6b17e;
-      --accent: #b8977a;
+      --bg: #121212;
+      --surface: #1e1e1e;
+      --surface-alt: #2a2a2a;
+      --text: #ebe5d9;
+      --text-secondary: #b7aa92;
+      --primary: #c99c2c;
+      --primary-glow: #e0b04a;
+      --accent: #bbbbbb;
       --border: #4a4238;
-      --shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-      --header-bg: rgba(30, 30, 30, 0.9);
-      --modal-overlay: rgba(0, 0, 0, 0.7);
-      --input-bg: #3a3a3a;
-      --toggle-bg: #555;
-      --toggle-circle: #f0eadc;
+      --shadow: 0 12px 32px rgba(0,0,0,0.5);
+      --card-shadow: 0 10px 28px rgba(0,0,0,0.6);
+      --header-bg: rgba(18,18,18,0.9);
+      --modal-overlay: rgba(0,0,0,0.8);
+      --input-bg: #2c2c2c;
+      --toggle-bg: #444;
+      --toggle-circle: #f0e6d2;
     }
 
     body {
-      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
-      background-color: var(--bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
       color: var(--text);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background 0.3s, color 0.3s;
       line-height: 1.5;
-      scroll-behavior: smooth;
     }
 
     .container {
-      max-width: 1280px;
+      max-width: 1300px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* Header & Navigation */
     header {
       background: var(--header-bg);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       box-shadow: var(--shadow);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       border-bottom: 1px solid var(--border);
     }
 
@@ -88,32 +84,21 @@
     }
 
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
-
-    .logo i {
-      font-size: 2rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .nav-links a {
       text-decoration: none;
       font-weight: 500;
       color: var(--text);
-      transition: color 0.2s;
-      font-size: 1rem;
+      margin-left: 32px;
+      transition: 0.2s;
     }
 
     .nav-links a:hover {
@@ -122,136 +107,92 @@
 
     .header-actions {
       display: flex;
-      align-items: center;
       gap: 16px;
+      align-items: center;
     }
 
-    .theme-toggle, .login-btn-header {
+    .theme-btn, .login-btn {
       background: var(--surface);
       border: 1px solid var(--border);
-      padding: 10px 16px;
+      padding: 10px 18px;
       border-radius: 40px;
       cursor: pointer;
       font-weight: 500;
       display: flex;
       align-items: center;
       gap: 6px;
+      transition: 0.2s;
       color: var(--text);
-      transition: all 0.2s;
-      background-color: var(--surface);
     }
 
-    .theme-toggle:hover, .login-btn-header:hover {
+    .theme-btn:hover, .login-btn:hover {
       background: var(--primary);
       color: white;
       border-color: var(--primary);
     }
 
-    /* Hero */
     .hero {
-      background: linear-gradient(135deg, var(--surface-alt), var(--surface));
+      background: linear-gradient(120deg, var(--surface-alt), var(--surface));
       border-radius: 48px;
-      margin: 30px 0;
       padding: 60px 40px;
+      margin: 30px 0;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 30px;
-      box-shadow: var(--card-shadow);
     }
 
-    .hero-text {
-      flex: 1 1 300px;
-    }
-
-    .hero-text h1 {
-      font-size: 2.8rem;
+    .hero h1 {
+      font-size: 3rem;
       font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .hero-text p {
-      font-size: 1.2rem;
-      color: var(--text-secondary);
-      margin-bottom: 30px;
     }
 
     .btn {
       background: var(--primary);
-      color: white;
       border: none;
       padding: 14px 32px;
       border-radius: 60px;
       font-weight: 600;
-      font-size: 1rem;
       cursor: pointer;
+      color: white;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      transition: background 0.2s, transform 0.1s;
-      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
     }
 
     .btn:hover {
-      background: var(--primary-hover);
-      transform: translateY(-2px);
-    }
-
-    /* Services cards */
-    .section-title {
-      font-size: 2.2rem;
-      margin: 60px 0 30px;
-      text-align: center;
-      font-weight: 600;
+      background: var(--primary-glow);
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 28px;
-      margin-bottom: 50px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
     }
 
     .service-card {
       background: var(--surface);
-      border-radius: 32px;
-      padding: 32px 24px;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.2s;
-      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px 18px;
       text-align: center;
-    }
-
-    .service-card:hover {
-      transform: translateY(-8px);
-    }
-
-    .service-card i {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 16px;
-    }
-
-    .service-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-    }
-
-    /* Booking section */
-    .booking-section {
-      background: var(--surface);
-      border-radius: 40px;
-      padding: 40px;
-      margin: 50px 0;
       box-shadow: var(--card-shadow);
+      border: 1px solid var(--border);
     }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
+    .booking-section, .feedback-section {
+      background: var(--surface);
+      border-radius: 36px;
+      padding: 36px;
+      margin: 40px 0;
+      box-shadow: var(--card-shadow);
     }
 
     input, select, textarea {
@@ -259,39 +200,20 @@
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 14px 18px;
-      font-size: 1rem;
-      color: var(--text);
       width: 100%;
-      outline: none;
-      transition: 0.2s;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(212, 156, 107, 0.2);
-    }
-
-    .whatsapp-note {
-      margin-top: 24px;
-      background: #25D36620;
-      border-radius: 24px;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
+      margin-bottom: 16px;
       color: var(--text);
     }
 
-    /* Modal / Popup */
     .modal {
       display: none;
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      top:0;left:0;width:100%;height:100%;
       background: var(--modal-overlay);
       align-items: center;
       justify-content: center;
       z-index: 1000;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(6px);
     }
 
     .modal.active {
@@ -300,332 +222,295 @@
 
     .modal-content {
       background: var(--surface);
-      border-radius: 36px;
+      border-radius: 32px;
       padding: 32px;
-      max-width: 420px;
+      max-width: 480px;
       width: 90%;
-      box-shadow: 0 30px 50px rgba(0,0,0,0.3);
       position: relative;
     }
 
     .close-modal {
       position: absolute;
-      top: 18px; right: 22px;
-      font-size: 1.6rem;
+      top: 16px; right: 20px;
+      font-size: 1.8rem;
       cursor: pointer;
-      color: var(--text-secondary);
     }
 
-    .login-tabs {
-      display: flex;
-      gap: 12px;
-      margin: 20px 0;
-    }
-
-    .tab-btn {
-      flex: 1;
-      padding: 12px;
-      border-radius: 30px;
-      border: 1px solid var(--border);
-      background: transparent;
-      font-weight: 600;
-      cursor: pointer;
-      color: var(--text);
-    }
-
-    .tab-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
+    .admin-panel {
+      background: var(--surface);
+      border-radius: 28px;
+      padding: 24px;
+      margin-top: 20px;
     }
 
     .hidden {
       display: none;
     }
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--border);
-      margin-top: 50px;
-    }
-
-    @media (max-width: 640px) {
-      .nav-links {
-        gap: 16px;
-      }
-      .hero {
-        padding: 40px 20px;
-      }
+    .google-btn {
+      background: #4285F4;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 40px;
+      width: 100%;
+      margin: 10px 0;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <!-- Data Collection Popup (appears on load) -->
+  <!-- Data Collection Popup -->
   <div id="dataPopup" class="modal active">
     <div class="modal-content">
       <span class="close-modal" id="closeDataPopup">&times;</span>
-      <h2 style="margin-bottom: 12px;"><i class="fas fa-paw" style="color: var(--primary);"></i> Welcome to Paws & Progress</h2>
-      <p style="margin-bottom: 20px; color: var(--text-secondary);">Join our pet community! Get tailored care tips & offers.</p>
-      <input type="text" id="popupName" placeholder="Your Name" style="margin-bottom: 12px;">
-      <input type="email" id="popupEmail" placeholder="Email address" style="margin-bottom: 12px;">
-      <input type="text" id="popupPhone" placeholder="Phone (optional)" style="margin-bottom: 20px;">
-      <button class="btn" id="submitDataPopup" style="width:100%; justify-content:center;">Subscribe & Explore</button>
-      <p style="font-size:0.8rem; margin-top:12px; color:var(--text-secondary);">We respect your privacy. No spam.</p>
+      <h2 style="color:var(--primary);"><i class="fas fa-paw"></i> BLACK PRADOS</h2>
+      <p>Join our elite pet community in Kalvoor, Alappuzha.</p>
+      <input type="text" id="popupName" placeholder="Your full name">
+      <input type="email" id="popupEmail" placeholder="Email address">
+      <input type="text" id="popupPhone" placeholder="Phone number">
+      <input type="text" id="popupPetBreed" placeholder="Pet breed (e.g., Labrador)">
+      <input type="text" id="popupPetAge" placeholder="Pet age (e.g., 2 years)">
+      <button class="btn" id="submitDataPopup" style="width:100%;">Get Started</button>
     </div>
   </div>
 
-  <!-- Login Modal (User/Admin) -->
+  <!-- Login Modal -->
   <div id="loginModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" id="closeLoginModal">&times;</span>
-      <h2 style="margin-bottom: 8px;"><i class="fas fa-user-lock"></i> Login</h2>
-      <div class="login-tabs">
+      <h2>Login to BLACK PRADOS</h2>
+      <div style="display:flex; gap:12px; margin:16px 0;">
         <button class="tab-btn active" id="userTab">🐾 User</button>
         <button class="tab-btn" id="adminTab">🛡️ Admin</button>
       </div>
-      <div id="userLoginForm">
-        <input type="email" id="userEmail" placeholder="Email" style="margin-bottom:12px;">
-        <input type="password" id="userPassword" placeholder="Password" style="margin-bottom:20px;">
-        <button class="btn" id="userLoginBtn" style="width:100%;">Login as User</button>
+      <div id="userLoginBlock">
+        <input type="email" id="userEmail" placeholder="Email">
+        <input type="password" id="userPassword" placeholder="Password">
+        <button class="btn" id="userLoginBtn" style="width:100%;">Login</button>
+        <button class="google-btn" id="googleLoginBtn"><i class="fab fa-google"></i> Sign in with Google</button>
+        <p style="font-size:0.8rem;">Demo: user@pet.com / pass123</p>
       </div>
-      <div id="adminLoginForm" class="hidden">
-        <input type="text" id="adminUsername" placeholder="Admin Username" style="margin-bottom:12px;">
-        <input type="password" id="adminPassword" placeholder="Admin Password" style="margin-bottom:20px;">
+      <div id="adminLoginBlock" class="hidden">
+        <input type="text" id="adminUsername" placeholder="Admin username">
+        <input type="password" id="adminPassword" placeholder="Password">
         <button class="btn" id="adminLoginBtn" style="width:100%;">Admin Access</button>
+        <p style="font-size:0.8rem;">admin / admin123</p>
       </div>
-      <p style="margin-top:16px; font-size:0.85rem; color:var(--text-secondary);">Demo: user@pet.com / pass123 | admin / admin123</p>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard (hidden until admin login) -->
+  <div id="adminDashboard" class="modal">
+    <div class="modal-content" style="max-width:700px; max-height:80vh; overflow-y:auto;">
+      <span class="close-modal" id="closeAdminDashboard">&times;</span>
+      <h2><i class="fas fa-chart-line"></i> Admin Dashboard</h2>
+      <div id="bookingListContainer" class="admin-panel">
+        <p>Loading bookings...</p>
+      </div>
+      <div class="admin-panel" style="margin-top:16px;">
+        <h3>Collected Leads (from popup)</h3>
+        <div id="leadsContainer">No leads yet.</div>
+      </div>
     </div>
   </div>
 
   <header>
     <div class="container nav-bar">
-      <div class="logo">
-        <i class="fas fa-dog"></i> Paws & Progress
-      </div>
+      <div class="logo"><i class="fas fa-shield-alt"></i> BLACK PRADOS</div>
       <div class="nav-links">
         <a href="#">Home</a>
         <a href="#services">Services</a>
         <a href="#booking">Book</a>
-        <a href="#">Contact</a>
+        <a href="#feedback">Feedback</a>
       </div>
       <div class="header-actions">
-        <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i> <span>Dark</span></button>
-        <button class="login-btn-header" id="openLoginBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+        <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i> Dark</button>
+        <button class="login-btn" id="openLoginBtn"><i class="fas fa-user"></i> Login</button>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="hero-text">
-        <h1>Where every tail gets a <span style="color: var(--primary);">happy story</span></h1>
-        <p>Premium boarding, training, grooming & daycare in Kalvoor, Alappuzha. Safe, loving care for your furry family.</p>
-        <a href="#booking" class="btn"><i class="fas fa-calendar-check"></i> Book Now</a>
+    <div class="hero">
+      <div style="flex:1;">
+        <h1>BLACK PRADOS <span style="color:var(--primary);">Elite Care</span></h1>
+        <p>Dog walking, studding, boarding, training & grooming in Kalvoor, Alappuzha.</p>
+        <a href="#booking" class="btn"><i class="fas fa-calendar"></i> Reserve Now</a>
       </div>
-      <div style="flex:1; text-align:center;">
-        <i class="fas fa-paw" style="font-size:8rem; color:var(--primary); opacity:0.7;"></i>
-      </div>
-    </section>
+    </div>
 
-    <h2 class="section-title" id="services">Our Services</h2>
+    <h2 id="services">Our Services</h2>
     <div class="services-grid">
-      <div class="service-card"><i class="fas fa-home"></i><h3>Boarding</h3><p>Cozy overnight stays with 24/7 supervision.</p></div>
-      <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3><p>Obedience, behavior & puppy programs.</p></div>
-      <div class="service-card"><i class="fas fa-cut"></i><h3>Grooming</h3><p>Spa baths, haircuts, nail trims.</p></div>
-      <div class="service-card"><i class="fas fa-sun"></i><h3>Daycare</h3><p>Play, socialize & relax while you work.</p></div>
+      <div class="service-card"><i class="fas fa-home"></i><h3>Boarding</h3></div>
+      <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3></div>
+      <div class="service-card"><i class="fas fa-cut"></i><h3>Grooming</h3></div>
+      <div class="service-card"><i class="fas fa-sun"></i><h3>Daycare</h3></div>
+      <div class="service-card"><i class="fas fa-dog"></i><h3>Dog Walking</h3></div>
+      <div class="service-card"><i class="fas fa-venus-mars"></i><h3>Studding</h3></div>
     </div>
 
     <div class="booking-section" id="booking">
-      <h2 style="font-size: 2rem; margin-bottom: 8px;">Reserve a Spot</h2>
-      <p style="color: var(--text-secondary);">Select service, fill details & pay via WhatsApp.</p>
-      <div class="form-grid">
-        <select id="serviceSelect">
-          <option value="">Choose service</option>
-          <option value="Boarding">Boarding</option>
-          <option value="Training">Training</option>
-          <option value="Grooming">Grooming</option>
-          <option value="Daycare">Daycare</option>
-        </select>
+      <h2>Book a Service</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:16px;">
+        <select id="serviceSelect"><option value="">Service</option><option>Boarding</option><option>Training</option><option>Grooming</option><option>Daycare</option><option>Dog Walking</option><option>Studding</option></select>
         <input type="text" id="petName" placeholder="Pet name">
+        <input type="text" id="petBreed" placeholder="Breed">
+        <input type="text" id="petAge" placeholder="Age">
         <input type="text" id="ownerName" placeholder="Your name">
-        <input type="tel" id="phone" placeholder="Phone number">
+        <input type="tel" id="ownerPhone" placeholder="Phone">
         <input type="date" id="bookingDate">
+        <input type="text" id="ownerLocation" placeholder="Your location (e.g., Kalvoor)">
       </div>
-      <textarea id="notes" placeholder="Special instructions (optional)" rows="2" style="margin-top:16px;"></textarea>
-      <div class="whatsapp-note">
-        <i class="fab fa-whatsapp" style="font-size:2rem; color:#25D366;"></i>
-        <span><strong>Payment via WhatsApp:</strong> After submitting, you'll be redirected to our WhatsApp to confirm and pay.</span>
+      <textarea id="notes" placeholder="Special notes"></textarea>
+      <div style="background:#25D36620; border-radius:20px; padding:12px; margin:16px 0;">
+        <i class="fab fa-whatsapp"></i> Payment via WhatsApp after booking.
       </div>
-      <button class="btn" id="submitBooking" style="margin-top:20px;"><i class="fab fa-whatsapp"></i> Proceed to WhatsApp Payment</button>
+      <button class="btn" id="submitBooking"><i class="fab fa-whatsapp"></i> Proceed to WhatsApp</button>
+    </div>
+
+    <div class="feedback-section" id="feedback">
+      <h2>Customer Feedback</h2>
+      <input type="text" id="feedbackName" placeholder="Your name">
+      <textarea id="feedbackMessage" placeholder="Share your experience..."></textarea>
+      <button class="btn" id="submitFeedback">Submit Feedback</button>
+      <div style="margin-top:20px;" id="feedbackDisplay"></div>
     </div>
   </main>
 
-  <footer>
-    <div class="container">
-      <p><i class="fas fa-map-marker-alt"></i> Kalvoor, Alappuzha, Kerala, India | <i class="fas fa-phone-alt"></i> +91 98765 43210</p>
-      <p style="margin-top:8px;">© 2025 Paws & Progress. Loving care guaranteed.</p>
-    </div>
-  </footer>
+  <footer style="text-align:center; padding:30px;">© BLACK PRADOS, Kalvoor, Alappuzha</footer>
 
   <script>
     (function() {
-      // DOM elements
+      // Storage simulation
+      let bookings = JSON.parse(localStorage.getItem('blackPradosBookings') || '[]');
+      let leads = JSON.parse(localStorage.getItem('blackPradosLeads') || '[]');
+      let feedbacks = JSON.parse(localStorage.getItem('blackPradosFeedback') || '[]');
+
       const body = document.body;
       const themeToggle = document.getElementById('themeToggle');
-      const themeIcon = themeToggle.querySelector('i');
-      const themeText = themeToggle.querySelector('span');
-      
-      // Popup elements
-      const dataPopup = document.getElementById('dataPopup');
-      const closeDataPopup = document.getElementById('closeDataPopup');
-      const submitDataPopup = document.getElementById('submitDataPopup');
-      
-      // Login modal
-      const loginModal = document.getElementById('loginModal');
-      const openLoginBtn = document.getElementById('openLoginBtn');
-      const closeLoginModal = document.getElementById('closeLoginModal');
-      const userTab = document.getElementById('userTab');
-      const adminTab = document.getElementById('adminTab');
-      const userLoginForm = document.getElementById('userLoginForm');
-      const adminLoginForm = document.getElementById('adminLoginForm');
-      
-      // Booking
-      const submitBooking = document.getElementById('submitBooking');
 
-      // Theme management
+      // Theme
       function setTheme(mode) {
         if (mode === 'dark') {
           body.classList.add('dark');
-          themeIcon.className = 'fas fa-sun';
-          themeText.textContent = 'Light';
-          localStorage.setItem('theme', 'dark');
+          themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light';
+          localStorage.setItem('bpTheme', 'dark');
         } else {
           body.classList.remove('dark');
-          themeIcon.className = 'fas fa-moon';
-          themeText.textContent = 'Dark';
-          localStorage.setItem('theme', 'light');
+          themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark';
+          localStorage.setItem('bpTheme', 'light');
         }
       }
+      themeToggle.addEventListener('click', ()=> setTheme(body.classList.contains('dark')?'light':'dark'));
+      if(localStorage.getItem('bpTheme')==='dark') setTheme('dark');
 
-      themeToggle.addEventListener('click', () => {
-        if (body.classList.contains('dark')) {
-          setTheme('light');
-        } else {
-          setTheme('dark');
-        }
-      });
-
-      // Load saved theme
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        setTheme('dark');
-      } else {
-        setTheme('light');
-      }
-
-      // Data collection popup logic
-      function closePopup() {
-        dataPopup.classList.remove('active');
-      }
-
-      closeDataPopup.addEventListener('click', closePopup);
-      
-      submitDataPopup.addEventListener('click', () => {
-        const name = document.getElementById('popupName').value.trim();
-        const email = document.getElementById('popupEmail').value.trim();
-        if (name && email) {
-          alert(`Thanks, ${name}! Welcome to the Paws family.`);
-          closePopup();
-          // In real scenario, send to server.
-        } else {
-          alert('Please fill name and email to continue.');
-        }
-      });
-
-      // Click outside popup to close (optional but not for data popup? keep it friendly)
-      window.addEventListener('click', (e) => {
-        if (e.target === dataPopup) closePopup();
-        if (e.target === loginModal) loginModal.classList.remove('active');
+      // Popup
+      const dataPopup = document.getElementById('dataPopup');
+      document.getElementById('closeDataPopup').addEventListener('click', ()=> dataPopup.classList.remove('active'));
+      document.getElementById('submitDataPopup').addEventListener('click', ()=>{
+        const lead = {
+          name: document.getElementById('popupName').value,
+          email: document.getElementById('popupEmail').value,
+          phone: document.getElementById('popupPhone').value,
+          breed: document.getElementById('popupPetBreed').value,
+          age: document.getElementById('popupPetAge').value,
+          date: new Date().toLocaleString()
+        };
+        if(lead.name && lead.email) {
+          leads.push(lead);
+          localStorage.setItem('blackPradosLeads', JSON.stringify(leads));
+          alert('Welcome to BLACK PRADOS!');
+          dataPopup.classList.remove('active');
+        } else alert('Name and email required.');
       });
 
       // Login modal
-      openLoginBtn.addEventListener('click', () => {
-        loginModal.classList.add('active');
+      const loginModal = document.getElementById('loginModal');
+      document.getElementById('openLoginBtn').addEventListener('click', ()=> loginModal.classList.add('active'));
+      document.getElementById('closeLoginModal').addEventListener('click', ()=> loginModal.classList.remove('active'));
+      document.getElementById('userTab').addEventListener('click', ()=>{
+        document.getElementById('userLoginBlock').classList.remove('hidden');
+        document.getElementById('adminLoginBlock').classList.add('hidden');
       });
-      closeLoginModal.addEventListener('click', () => {
-        loginModal.classList.remove('active');
-      });
-
-      // Tabs
-      userTab.addEventListener('click', () => {
-        userTab.classList.add('active');
-        adminTab.classList.remove('active');
-        userLoginForm.classList.remove('hidden');
-        adminLoginForm.classList.add('hidden');
-      });
-      adminTab.addEventListener('click', () => {
-        adminTab.classList.add('active');
-        userTab.classList.remove('active');
-        adminLoginForm.classList.remove('hidden');
-        userLoginForm.classList.add('hidden');
+      document.getElementById('adminTab').addEventListener('click', ()=>{
+        document.getElementById('userLoginBlock').classList.add('hidden');
+        document.getElementById('adminLoginBlock').classList.remove('hidden');
       });
 
-      // Demo login actions
-      document.getElementById('userLoginBtn').addEventListener('click', () => {
-        const email = document.getElementById('userEmail').value;
-        const password = document.getElementById('userPassword').value;
-        if (email === 'user@pet.com' && password === 'pass123') {
-          alert('✅ User login successful! Welcome back, pet parent.');
+      document.getElementById('userLoginBtn').addEventListener('click', ()=>{
+        if(document.getElementById('userEmail').value==='user@pet.com' && document.getElementById('userPassword').value==='pass123'){
+          alert('User login successful');
           loginModal.classList.remove('active');
-        } else {
-          alert('Invalid user credentials. Try user@pet.com / pass123');
-        }
+        } else alert('Invalid credentials');
       });
-
-      document.getElementById('adminLoginBtn').addEventListener('click', () => {
-        const username = document.getElementById('adminUsername').value;
-        const password = document.getElementById('adminPassword').value;
-        if (username === 'admin' && password === 'admin123') {
-          alert('🔐 Admin access granted. Dashboard coming soon.');
+      document.getElementById('googleLoginBtn').addEventListener('click', ()=>{
+        alert('Google login simulation - Continue with Google account.');
+      });
+      document.getElementById('adminLoginBtn').addEventListener('click', ()=>{
+        if(document.getElementById('adminUsername').value==='admin' && document.getElementById('adminPassword').value==='admin123'){
           loginModal.classList.remove('active');
-        } else {
-          alert('Admin login failed. Use admin / admin123');
-        }
+          openAdminDashboard();
+        } else alert('Admin login failed');
       });
 
-      // WhatsApp booking redirect
-      submitBooking.addEventListener('click', () => {
+      function openAdminDashboard() {
+        document.getElementById('adminDashboard').classList.add('active');
+        renderAdminBookings();
+        renderLeads();
+      }
+      document.getElementById('closeAdminDashboard').addEventListener('click', ()=> document.getElementById('adminDashboard').classList.remove('active'));
+
+      function renderAdminBookings() {
+        const container = document.getElementById('bookingListContainer');
+        if(bookings.length===0) { container.innerHTML='<p>No bookings yet.</p>'; return; }
+        container.innerHTML = bookings.map((b,i)=> `<div style="border-bottom:1px solid var(--border); padding:8px 0;"><strong>${b.service}</strong> - ${b.petName} (${b.breed}, ${b.age}) | Owner: ${b.owner}, 📍${b.location}, 📅${b.date}</div>`).join('');
+      }
+      function renderLeads() {
+        const c = document.getElementById('leadsContainer');
+        if(leads.length===0) { c.innerHTML='No leads collected.'; return; }
+        c.innerHTML = leads.map(l=> `<div>${l.name} (${l.email}) - Pet: ${l.breed}, ${l.age}</div>`).join('');
+      }
+
+      // Booking submit
+      document.getElementById('submitBooking').addEventListener('click', ()=>{
         const service = document.getElementById('serviceSelect').value;
         const pet = document.getElementById('petName').value.trim();
+        const breed = document.getElementById('petBreed').value.trim();
+        const age = document.getElementById('petAge').value.trim();
         const owner = document.getElementById('ownerName').value.trim();
-        const phone = document.getElementById('phone').value.trim();
+        const phone = document.getElementById('ownerPhone').value.trim();
         const date = document.getElementById('bookingDate').value;
-        const notes = document.getElementById('notes').value.trim();
-
-        if (!service || !pet || !owner || !phone || !date) {
-          alert('Please fill all required fields: service, pet name, owner, phone, and date.');
-          return;
-        }
-
-        // Construct WhatsApp message (payment will be discussed there)
-        const message = `Hello Paws & Progress! 🐾%0A%0A` +
-          `*Service:* ${service}%0A` +
-          `*Pet:* ${pet}%0A` +
-          `*Owner:* ${owner}%0A` +
-          `*Phone:* ${phone}%0A` +
-          `*Date:* ${date}%0A` +
-          `*Notes:* ${notes || 'None'}%0A%0A` +
-          `I'd like to confirm booking and proceed with payment.`;
-
-        // WhatsApp number (replace with your business number; using placeholder)
-        const whatsappNumber = '919876543210'; // Indian format without +
-        const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-        window.open(url, '_blank');
+        const location = document.getElementById('ownerLocation').value.trim();
+        if(!service || !pet || !owner || !phone || !date) { alert('Fill required fields'); return; }
+        const booking = { service, petName:pet, breed, age, owner, phone, date, location, notes: document.getElementById('notes').value };
+        bookings.push(booking);
+        localStorage.setItem('blackPradosBookings', JSON.stringify(bookings));
+        const msg = `BLACK PRADOS Booking:%0A${service} for ${pet} (${breed}, ${age})%0AOwner: ${owner}, 📍${location}%0ADate: ${date}`;
+        window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
       });
 
-      // Close popup if user clicks outside (already handled)
+      // Feedback
+      document.getElementById('submitFeedback').addEventListener('click', ()=>{
+        const name = document.getElementById('feedbackName').value.trim();
+        const msg = document.getElementById('feedbackMessage').value.trim();
+        if(!name || !msg) return alert('Enter name and message');
+        feedbacks.push({name, msg, date: new Date().toLocaleString()});
+        localStorage.setItem('blackPradosFeedback', JSON.stringify(feedbacks));
+        displayFeedbacks();
+      });
+
+      function displayFeedbacks() {
+        const div = document.getElementById('feedbackDisplay');
+        div.innerHTML = feedbacks.map(f=> `<p><strong>${f.name}</strong>: ${f.msg}</p>`).join('');
+      }
+      displayFeedbacks();
+
+      window.addEventListener('click', (e)=> {
+        if(e.target === dataPopup) dataPopup.classList.remove('active');
+        if(e.target === loginModal) loginModal.classList.remove('active');
+        if(e.target === document.getElementById('adminDashboard')) document.getElementById('adminDashboard').classList.remove('active');
+      });
     })();
   </script>
 </body>
