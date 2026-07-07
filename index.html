@@ -310,6 +310,42 @@
       margin: 10px 0;
       cursor: pointer;
     }
+
+    .instagram-embed {
+      margin: 20px 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--surface-alt);
+      padding: 20px;
+    }
+
+    .instagram-reel {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .gallery-tabs {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .gallery-tab {
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: var(--surface-alt);
+      cursor: pointer;
+      border: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    .gallery-tab.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
   </style>
 </head>
 <body>
@@ -416,7 +452,61 @@
 
     <div class="gallery-section" id="gallery">
       <h2>📸 Our Happy Paws Gallery</h2>
-      <div id="publicGallery" class="gallery-grid"></div>
+      
+      <div class="gallery-tabs">
+        <div class="gallery-tab active" onclick="switchGalleryTab('uploads')">📁 Our Media</div>
+        <div class="gallery-tab" onclick="switchGalleryTab('instagram')">📱 Instagram Reels</div>
+      </div>
+
+      <div id="uploadsGallery">
+        <div id="publicGallery" class="gallery-grid"></div>
+      </div>
+
+      <div id="instagramGallery" class="hidden">
+        <div class="instagram-embed">
+          <h3 style="margin-bottom: 16px;"><i class="fab fa-instagram"></i> Latest from Instagram</h3>
+          <div class="instagram-reel">
+            <!-- Instagram Reel Embed -->
+            <blockquote class="instagram-media" 
+              data-instgrm-permalink="https://www.instagram.com/reel/DaVND93RNMh/" 
+              data-instgrm-version="14" 
+              style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+            </blockquote>
+          </div>
+          <div style="margin-top: 20px; text-align: center;">
+            <a href="https://www.instagram.com/blackpradosk9" target="_blank" class="btn-outline" style="text-decoration: none; padding: 12px 24px; border-radius: 30px;">
+              <i class="fab fa-instagram"></i> Follow @blackpradosk9
+            </a>
+          </div>
+          <p style="margin-top: 20px; color: var(--text-secondary); font-size: 0.9rem;">
+            Want to see more? Follow us on Instagram for daily updates, training tips, and adorable moments from BLACK PRADOS K9!
+          </p>
+        </div>
+        
+        <!-- Additional Instagram Posts Grid (simulated) -->
+        <div class="gallery-grid" style="margin-top: 20px;">
+          <div class="gallery-item" style="text-align: center; padding: 20px; background: var(--surface-alt);">
+            <i class="fab fa-instagram" style="font-size: 3rem; color: #E1306C;"></i>
+            <p style="margin-top: 10px;">Training Session</p>
+            <small>@blackpradosk9</small>
+          </div>
+          <div class="gallery-item" style="text-align: center; padding: 20px; background: var(--surface-alt);">
+            <i class="fab fa-instagram" style="font-size: 3rem; color: #E1306C;"></i>
+            <p style="margin-top: 10px;">Boarding Fun</p>
+            <small>@blackpradosk9</small>
+          </div>
+          <div class="gallery-item" style="text-align: center; padding: 20px; background: var(--surface-alt);">
+            <i class="fab fa-instagram" style="font-size: 3rem; color: #E1306C;"></i>
+            <p style="margin-top: 10px;">Grooming Time</p>
+            <small>@blackpradosk9</small>
+          </div>
+          <div class="gallery-item" style="text-align: center; padding: 20px; background: var(--surface-alt);">
+            <i class="fab fa-instagram" style="font-size: 3rem; color: #E1306C;"></i>
+            <p style="margin-top: 10px;">Puppy Playdate</p>
+            <small>@blackpradosk9</small>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="booking-section" id="booking">
@@ -449,6 +539,9 @@
 
   <footer style="text-align:center; padding:30px;">© BLACK PRADOS K9, Kalvoor, Alappuzha, Kerala</footer>
 
+  <!-- Instagram Embed Script -->
+  <script async src="//www.instagram.com/embed.js"></script>
+
   <script>
     (function() {
       // Local storage keys
@@ -480,6 +573,25 @@
       if(localStorage.getItem('bpTheme')==='dark') setTheme('dark');
 
       window.scrollToSection = (id) => document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+
+      // Gallery tab switching
+      window.switchGalleryTab = (tab) => {
+        const uploadsGallery = document.getElementById('uploadsGallery');
+        const instagramGallery = document.getElementById('instagramGallery');
+        const tabs = document.querySelectorAll('.gallery-tab');
+        
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        if (tab === 'uploads') {
+          uploadsGallery.classList.remove('hidden');
+          instagramGallery.classList.add('hidden');
+          tabs[0].classList.add('active');
+        } else {
+          uploadsGallery.classList.add('hidden');
+          instagramGallery.classList.remove('hidden');
+          tabs[1].classList.add('active');
+        }
+      };
 
       // Popup
       const dataPopup = document.getElementById('dataPopup');
@@ -556,7 +668,7 @@
       function renderPublicGallery() {
         const container = document.getElementById('publicGallery');
         if(!galleryItems.length) {
-          container.innerHTML = '<p>No media yet. Admin can upload from dashboard.</p>';
+          container.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">No media uploaded yet. Admin can add from dashboard.</p>';
           return;
         }
         container.innerHTML = galleryItems.map(item => {
@@ -632,6 +744,8 @@
       function displayFeedbacks() {
         document.getElementById('feedbackDisplay').innerHTML = feedbacks.map(f=> `<p><strong>${f.name}</strong>: ${f.msg}</p>`).join('');
       }
+      
+      // Initialize
       displayFeedbacks();
       renderPublicGallery();
 
