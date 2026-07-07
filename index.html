@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>BLACK PRADOS K9 | Elite Pet Care Kalvoor</title>
+  <title>BLACK PRADOS K9 | Elite Pet Boarding • Training • Grooming • Daycare</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -13,46 +13,44 @@
     }
 
     :root {
-      --bg: #faf8f5;
+      --bg: #faf9f7;
       --surface: #ffffff;
-      --surface-alt: #f3efe8;
-      --text: #1a1a1a;
-      --text-secondary: #5c5548;
+      --surface-alt: #f4f1ec;
+      --text: #1f1f1f;
+      --text-secondary: #5a554b;
       --primary: #b8860b;
       --primary-glow: #d4a017;
-      --accent: #2c2c2c;
-      --border: #ddd4c4;
-      --shadow: 0 12px 30px rgba(0,0,0,0.04);
-      --card-shadow: 0 10px 25px rgba(0,0,0,0.04);
-      --header-bg: rgba(255,255,255,0.9);
+      --accent: #3a3a3a;
+      --border: #ddd6cb;
+      --shadow: 0 12px 32px rgba(0,0,0,0.04);
+      --card-shadow: 0 10px 28px rgba(0,0,0,0.05);
+      --header-bg: rgba(255,255,255,0.88);
       --modal-overlay: rgba(0,0,0,0.55);
       --input-bg: #ffffff;
-      --toggle-bg: #ccc;
     }
 
     body.dark {
-      --bg: #0f0f0f;
-      --surface: #1c1c1c;
-      --surface-alt: #292929;
-      --text: #ebe3d2;
-      --text-secondary: #b3a68b;
+      --bg: #121212;
+      --surface: #1e1e1e;
+      --surface-alt: #2a2a2a;
+      --text: #ebe5d9;
+      --text-secondary: #b7aa92;
       --primary: #c99c2c;
       --primary-glow: #e0b04a;
-      --accent: #cccccc;
-      --border: #4a4032;
-      --shadow: 0 12px 30px rgba(0,0,0,0.6);
-      --card-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      --header-bg: rgba(15,15,15,0.92);
+      --accent: #bbbbbb;
+      --border: #4a4238;
+      --shadow: 0 12px 32px rgba(0,0,0,0.5);
+      --card-shadow: 0 10px 28px rgba(0,0,0,0.6);
+      --header-bg: rgba(18,18,18,0.9);
       --modal-overlay: rgba(0,0,0,0.8);
-      --input-bg: #2a2a2a;
-      --toggle-bg: #4a4a4a;
+      --input-bg: #2c2c2c;
     }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
-      transition: 0.3s;
+      transition: background 0.3s, color 0.3s;
       line-height: 1.5;
     }
 
@@ -64,11 +62,12 @@
 
     header {
       background: var(--header-bg);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       box-shadow: var(--shadow);
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       border-bottom: 1px solid var(--border);
     }
 
@@ -77,24 +76,26 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      padding: 14px 0;
+      padding: 16px 0;
     }
 
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 700;
+      letter-spacing: -0.3px;
       color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .nav-links a {
       text-decoration: none;
       font-weight: 500;
       color: var(--text);
-      margin-left: 28px;
+      margin-left: 32px;
       transition: 0.2s;
+      cursor: pointer;
     }
 
     .nav-links a:hover {
@@ -103,21 +104,56 @@
 
     .header-actions {
       display: flex;
-      gap: 12px;
+      gap: 16px;
       align-items: center;
+    }
+
+    .theme-btn, .login-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s;
+      color: var(--text);
+    }
+
+    .theme-btn:hover, .login-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .hero {
+      background: linear-gradient(120deg, var(--surface-alt), var(--surface));
+      border-radius: 48px;
+      padding: 60px 40px;
+      margin: 30px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
     }
 
     .btn {
       background: var(--primary);
       border: none;
-      padding: 12px 26px;
-      border-radius: 40px;
+      padding: 14px 32px;
+      border-radius: 60px;
       font-weight: 600;
       cursor: pointer;
       color: white;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       transition: 0.2s;
     }
 
@@ -131,36 +167,44 @@
       background: var(--primary-glow);
     }
 
-    .theme-btn {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 10px 18px;
-      border-radius: 40px;
-      cursor: pointer;
-    }
-
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 20px;
-      margin: 30px 0;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
     }
 
     .service-card {
       background: var(--surface);
-      border-radius: 24px;
-      padding: 24px;
+      border-radius: 28px;
+      padding: 28px 18px;
       text-align: center;
+      box-shadow: var(--card-shadow);
       border: 1px solid var(--border);
+    }
+
+    .booking-section, .feedback-section, .gallery-section {
+      background: var(--surface);
+      border-radius: 36px;
+      padding: 36px;
+      margin: 40px 0;
+      box-shadow: var(--card-shadow);
+    }
+
+    input, select, textarea {
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 14px 18px;
+      width: 100%;
+      margin-bottom: 16px;
+      color: var(--text);
     }
 
     .modal {
       display: none;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top:0;left:0;width:100%;height:100%;
       background: var(--modal-overlay);
       align-items: center;
       justify-content: center;
@@ -175,60 +219,96 @@
     .modal-content {
       background: var(--surface);
       border-radius: 32px;
-      padding: 28px;
-      max-width: 500px;
+      padding: 32px;
+      max-width: 700px;
       width: 90%;
       position: relative;
+      max-height: 85vh;
+      overflow-y: auto;
     }
 
     .close-modal {
       position: absolute;
-      top: 14px;
-      right: 20px;
+      top: 16px; right: 20px;
       font-size: 1.8rem;
       cursor: pointer;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin: 20px 0;
-    }
-
-    .gallery-item {
+    .admin-panel {
       background: var(--surface-alt);
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .gallery-item img, .gallery-item video {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .admin-page {
-      display: none;
-    }
-
-    .admin-page.active {
-      display: block;
+      border-radius: 20px;
+      padding: 20px;
+      margin-top: 20px;
     }
 
     .hidden {
       display: none;
     }
 
-    input, select, textarea {
-      background: var(--input-bg);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 12px 16px;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--surface-alt);
+    }
+
+    .gallery-item img, .gallery-item video {
       width: 100%;
-      margin-bottom: 12px;
-      color: var(--text);
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .delete-media-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: crimson;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+    }
+
+    .upload-area {
+      border: 2px dashed var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .google-btn {
+      background: #4285F4;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 40px;
+      width: 100%;
+      margin: 10px 0;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -237,13 +317,13 @@
   <div id="dataPopup" class="modal active">
     <div class="modal-content">
       <span class="close-modal" id="closeDataPopup">&times;</span>
-      <h2 style="color:var(--primary);">BLACK PRADOS K9</h2>
-      <p>Join our elite pet community.</p>
-      <input type="text" id="popupName" placeholder="Full name">
-      <input type="email" id="popupEmail" placeholder="Email">
-      <input type="text" id="popupPhone" placeholder="Phone">
-      <input type="text" id="popupBreed" placeholder="Pet breed">
-      <input type="text" id="popupAge" placeholder="Pet age">
+      <h2 style="color:var(--primary);"><i class="fas fa-paw"></i> BLACK PRADOS K9</h2>
+      <p>Join our elite pet community in Kalvoor, Alappuzha.</p>
+      <input type="text" id="popupName" placeholder="Your full name">
+      <input type="email" id="popupEmail" placeholder="Email address">
+      <input type="text" id="popupPhone" placeholder="Phone number">
+      <input type="text" id="popupPetBreed" placeholder="Pet breed (e.g., Labrador)">
+      <input type="text" id="popupPetAge" placeholder="Pet age (e.g., 2 years)">
       <button class="btn" id="submitDataPopup" style="width:100%;">Get Started</button>
     </div>
   </div>
@@ -252,8 +332,8 @@
   <div id="loginModal" class="modal">
     <div class="modal-content">
       <span class="close-modal" id="closeLoginModal">&times;</span>
-      <h2>Login</h2>
-      <div style="display:flex; gap:10px; margin:16px 0;">
+      <h2>Login to BLACK PRADOS K9</h2>
+      <div style="display:flex; gap:12px; margin:16px 0;">
         <button class="tab-btn active" id="userTab">🐾 User</button>
         <button class="tab-btn" id="adminTab">🛡️ Admin</button>
       </div>
@@ -261,149 +341,170 @@
         <input type="email" id="userEmail" placeholder="Email">
         <input type="password" id="userPassword" placeholder="Password">
         <button class="btn" id="userLoginBtn" style="width:100%;">Login</button>
-        <button class="btn" style="background:#4285F4; width:100%; margin-top:8px;" id="googleLoginBtn"><i class="fab fa-google"></i> Google Sign In</button>
+        <button class="google-btn" id="googleLoginBtn"><i class="fab fa-google"></i> Sign in with Google</button>
+        <p style="font-size:0.8rem;">Demo: user@pet.com / pass123</p>
       </div>
       <div id="adminLoginBlock" class="hidden">
         <input type="text" id="adminUsername" placeholder="Admin username">
         <input type="password" id="adminPassword" placeholder="Password">
         <button class="btn" id="adminLoginBtn" style="width:100%;">Admin Access</button>
+        <p style="font-size:0.8rem;">admin / admin123</p>
       </div>
     </div>
   </div>
 
-  <!-- Main Website -->
-  <div id="mainSite">
-    <header>
-      <div class="container nav-bar">
-        <div class="logo"><i class="fas fa-shield-alt"></i> BLACK PRADOS K9</div>
-        <div class="nav-links">
-          <a href="#" onclick="showSection('home')">Home</a>
-          <a href="#" onclick="showSection('services')">Services</a>
-          <a href="#" onclick="showSection('booking')">Book</a>
-          <a href="#" onclick="showSection('gallery')">Gallery</a>
-          <a href="#" onclick="showSection('feedback')">Feedback</a>
-        </div>
-        <div class="header-actions">
-          <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
-          <button class="btn" id="openLoginBtn">Login</button>
-        </div>
+  <!-- Admin Dashboard -->
+  <div id="adminDashboard" class="modal">
+    <div class="modal-content" style="max-width:800px;">
+      <span class="close-modal" id="closeAdminDashboard">&times;</span>
+      <h2><i class="fas fa-chart-line"></i> Admin Command Center</h2>
+      <div class="admin-panel">
+        <h3>📋 All Bookings</h3>
+        <div id="bookingListContainer">No bookings yet.</div>
       </div>
-    </header>
-    <main class="container" id="mainContent">
-      <!-- Home -->
-      <div id="homeSection" class="section active">
-        <div style="padding:40px 0; text-align:center;">
-          <h1 style="font-size:2.8rem;">BLACK PRADOS K9</h1>
-          <p>Dog walking, studding, boarding, training, grooming & daycare in Kalvoor, Alappuzha.</p>
-        </div>
+      <div class="admin-panel">
+        <h3>📊 Collected Leads</h3>
+        <div id="leadsContainer">No leads.</div>
       </div>
-      <!-- Services -->
-      <div id="servicesSection" class="section hidden">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-          <div class="service-card"><i class="fas fa-home"></i><h3>Boarding</h3></div>
-          <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3></div>
-          <div class="service-card"><i class="fas fa-cut"></i><h3>Grooming</h3></div>
-          <div class="service-card"><i class="fas fa-sun"></i><h3>Daycare</h3></div>
-          <div class="service-card"><i class="fas fa-dog"></i><h3>Dog Walking</h3></div>
-          <div class="service-card"><i class="fas fa-venus-mars"></i><h3>Studding</h3></div>
+      <div class="admin-panel">
+        <h3>🖼️ Media Gallery Management</h3>
+        <div class="upload-area">
+          <input type="file" id="mediaUpload" accept="image/*,video/*" multiple style="display:none;">
+          <button class="btn" id="triggerUpload"><i class="fas fa-cloud-upload-alt"></i> Upload Images/Videos</button>
+          <p style="margin-top:10px;">Supported: jpg, png, mp4, webm</p>
         </div>
+        <div id="adminGalleryPreview" class="gallery-grid"></div>
       </div>
-      <!-- Booking -->
-      <div id="bookingSection" class="section hidden">
-        <h2>Book Service</h2>
-        <select id="serviceSelect"><option>Boarding</option><option>Training</option><option>Grooming</option><option>Daycare</option><option>Dog Walking</option><option>Studding</option></select>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav-bar">
+      <div class="logo"><i class="fas fa-shield-alt"></i> BLACK PRADOS K9</div>
+      <div class="nav-links">
+        <a onclick="scrollToSection('home')">Home</a>
+        <a onclick="scrollToSection('services')">Services</a>
+        <a onclick="scrollToSection('gallery')">Gallery</a>
+        <a onclick="scrollToSection('booking')">Book</a>
+        <a onclick="scrollToSection('feedback')">Feedback</a>
+      </div>
+      <div class="header-actions">
+        <button class="theme-btn" id="themeToggle"><i class="fas fa-moon"></i> Dark</button>
+        <button class="login-btn" id="openLoginBtn"><i class="fas fa-user"></i> Login</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="hero" id="home">
+      <div style="flex:1;">
+        <h1>BLACK PRADOS <span style="color:var(--primary);">K9</span></h1>
+        <p>Dog walking, studding, boarding, training & grooming in Kalvoor, Alappuzha.</p>
+        <a onclick="scrollToSection('booking')" class="btn"><i class="fas fa-calendar"></i> Reserve Now</a>
+      </div>
+    </div>
+
+    <h2 id="services">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card"><i class="fas fa-home"></i><h3>Boarding</h3></div>
+      <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3></div>
+      <div class="service-card"><i class="fas fa-cut"></i><h3>Grooming</h3></div>
+      <div class="service-card"><i class="fas fa-sun"></i><h3>Daycare</h3></div>
+      <div class="service-card"><i class="fas fa-dog"></i><h3>Dog Walking</h3></div>
+      <div class="service-card"><i class="fas fa-venus-mars"></i><h3>Studding</h3></div>
+    </div>
+
+    <div class="gallery-section" id="gallery">
+      <h2>📸 Our Happy Paws Gallery</h2>
+      <div id="publicGallery" class="gallery-grid"></div>
+    </div>
+
+    <div class="booking-section" id="booking">
+      <h2>Book a Service</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:16px;">
+        <select id="serviceSelect"><option value="">Service</option><option>Boarding</option><option>Training</option><option>Grooming</option><option>Daycare</option><option>Dog Walking</option><option>Studding</option></select>
         <input type="text" id="petName" placeholder="Pet name">
         <input type="text" id="petBreed" placeholder="Breed">
         <input type="text" id="petAge" placeholder="Age">
         <input type="text" id="ownerName" placeholder="Your name">
         <input type="tel" id="ownerPhone" placeholder="Phone">
         <input type="date" id="bookingDate">
-        <input type="text" id="ownerLocation" placeholder="Your location">
-        <button class="btn" id="submitBooking">Proceed to WhatsApp</button>
+        <input type="text" id="ownerLocation" placeholder="Your location (e.g., Kalvoor)">
       </div>
-      <!-- Gallery -->
-      <div id="gallerySection" class="section hidden">
-        <h2>Gallery</h2>
-        <div class="gallery-grid" id="userGallery"></div>
+      <textarea id="notes" placeholder="Special notes"></textarea>
+      <div style="background:#25D36620; border-radius:20px; padding:12px; margin:16px 0;">
+        <i class="fab fa-whatsapp"></i> Payment via WhatsApp after booking.
       </div>
-      <!-- Feedback -->
-      <div id="feedbackSection" class="section hidden">
-        <h2>Feedback</h2>
-        <input type="text" id="feedbackName" placeholder="Name">
-        <textarea id="feedbackMsg" placeholder="Message"></textarea>
-        <button class="btn" id="submitFeedback">Send</button>
-        <div id="feedbackList" style="margin-top:20px;"></div>
-      </div>
-    </main>
-  </div>
+      <button class="btn" id="submitBooking"><i class="fab fa-whatsapp"></i> Proceed to WhatsApp</button>
+    </div>
 
-  <!-- Admin Separate Page -->
-  <div id="adminPage" class="admin-page">
-    <div style="background:var(--surface); padding:16px; display:flex; justify-content:space-between;">
-      <h2>BLACK PRADOS K9 Admin</h2>
-      <button class="btn" id="logoutAdminBtn">Logout</button>
+    <div class="feedback-section" id="feedback">
+      <h2>Customer Feedback</h2>
+      <input type="text" id="feedbackName" placeholder="Your name">
+      <textarea id="feedbackMessage" placeholder="Share your experience..."></textarea>
+      <button class="btn" id="submitFeedback">Submit Feedback</button>
+      <div style="margin-top:20px;" id="feedbackDisplay"></div>
     </div>
-    <div class="container" style="margin-top:20px;">
-      <div style="display:flex; gap:12px; margin-bottom:20px;">
-        <button class="btn" onclick="showAdminTab('bookings')">Bookings</button>
-        <button class="btn" onclick="showAdminTab('leads')">Leads</button>
-        <button class="btn" onclick="showAdminTab('media')">Media Manager</button>
-      </div>
-      <div id="adminBookingsTab" class="admin-tab">Loading bookings...</div>
-      <div id="adminLeadsTab" class="admin-tab hidden">Loading leads...</div>
-      <div id="adminMediaTab" class="admin-tab hidden">
-        <h3>Upload Media</h3>
-        <input type="file" id="mediaUpload" accept="image/*,video/*" multiple>
-        <button class="btn" id="uploadMediaBtn">Upload</button>
-        <div class="gallery-grid" id="adminGallery" style="margin-top:16px;"></div>
-      </div>
-    </div>
-  </div>
+  </main>
+
+  <footer style="text-align:center; padding:30px;">© BLACK PRADOS K9, Kalvoor, Alappuzha, Kerala</footer>
 
   <script>
     (function() {
-      const body = document.body;
-      let currentUser = null;
-      let mediaItems = JSON.parse(localStorage.getItem('bpMedia') || '[]');
-      let bookings = JSON.parse(localStorage.getItem('bpBookings') || '[]');
-      let leads = JSON.parse(localStorage.getItem('bpLeads') || '[]');
-      let feedbacks = JSON.parse(localStorage.getItem('bpFeedback') || '[]');
+      // Local storage keys
+      const BOOKINGS_KEY = 'bpk9_bookings';
+      const LEADS_KEY = 'bpk9_leads';
+      const FEEDBACK_KEY = 'bpk9_feedback';
+      const GALLERY_KEY = 'bpk9_gallery';
 
-      // Theme
-      function setTheme(m) {
-        if(m==='dark') { body.classList.add('dark'); localStorage.setItem('bpTheme','dark'); }
-        else { body.classList.remove('dark'); localStorage.setItem('bpTheme','light'); }
+      let bookings = JSON.parse(localStorage.getItem(BOOKINGS_KEY) || '[]');
+      let leads = JSON.parse(localStorage.getItem(LEADS_KEY) || '[]');
+      let feedbacks = JSON.parse(localStorage.getItem(FEEDBACK_KEY) || '[]');
+      let galleryItems = JSON.parse(localStorage.getItem(GALLERY_KEY) || '[]');
+
+      const body = document.body;
+      const themeToggle = document.getElementById('themeToggle');
+
+      function setTheme(mode) {
+        if (mode === 'dark') {
+          body.classList.add('dark');
+          themeToggle.innerHTML = '<i class="fas fa-sun"></i> Light';
+          localStorage.setItem('bpTheme', 'dark');
+        } else {
+          body.classList.remove('dark');
+          themeToggle.innerHTML = '<i class="fas fa-moon"></i> Dark';
+          localStorage.setItem('bpTheme', 'light');
+        }
       }
-      document.getElementById('themeToggle').addEventListener('click', ()=> setTheme(body.classList.contains('dark')?'light':'dark'));
+      themeToggle.addEventListener('click', ()=> setTheme(body.classList.contains('dark')?'light':'dark'));
       if(localStorage.getItem('bpTheme')==='dark') setTheme('dark');
 
+      window.scrollToSection = (id) => document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+
       // Popup
-      document.getElementById('closeDataPopup').addEventListener('click', ()=> document.getElementById('dataPopup').classList.remove('active'));
+      const dataPopup = document.getElementById('dataPopup');
+      document.getElementById('closeDataPopup').addEventListener('click', ()=> dataPopup.classList.remove('active'));
       document.getElementById('submitDataPopup').addEventListener('click', ()=>{
         const lead = {
           name: document.getElementById('popupName').value,
           email: document.getElementById('popupEmail').value,
           phone: document.getElementById('popupPhone').value,
-          breed: document.getElementById('popupBreed').value,
-          age: document.getElementById('popupAge').value
+          breed: document.getElementById('popupPetBreed').value,
+          age: document.getElementById('popupPetAge').value,
+          date: new Date().toLocaleString()
         };
         if(lead.name && lead.email) {
           leads.push(lead);
-          localStorage.setItem('bpLeads', JSON.stringify(leads));
-          document.getElementById('dataPopup').classList.remove('active');
-        }
+          localStorage.setItem(LEADS_KEY, JSON.stringify(leads));
+          alert('Welcome to BLACK PRADOS K9!');
+          dataPopup.classList.remove('active');
+        } else alert('Name and email required.');
       });
 
-      // Section switching
-      window.showSection = (id) => {
-        document.querySelectorAll('#mainContent .section').forEach(s=> s.classList.add('hidden'));
-        document.getElementById(id+'Section').classList.remove('hidden');
-      };
-
-      // Login modal
-      document.getElementById('openLoginBtn').addEventListener('click', ()=> document.getElementById('loginModal').classList.add('active'));
-      document.getElementById('closeLoginModal').addEventListener('click', ()=> document.getElementById('loginModal').classList.remove('active'));
+      // Login
+      const loginModal = document.getElementById('loginModal');
+      document.getElementById('openLoginBtn').addEventListener('click', ()=> loginModal.classList.add('active'));
+      document.getElementById('closeLoginModal').addEventListener('click', ()=> loginModal.classList.remove('active'));
       document.getElementById('userTab').addEventListener('click', ()=>{
         document.getElementById('userLoginBlock').classList.remove('hidden');
         document.getElementById('adminLoginBlock').classList.add('hidden');
@@ -414,107 +515,131 @@
       });
       document.getElementById('userLoginBtn').addEventListener('click', ()=>{
         if(document.getElementById('userEmail').value==='user@pet.com' && document.getElementById('userPassword').value==='pass123'){
-          alert('User logged in'); document.getElementById('loginModal').classList.remove('active');
-        }
+          alert('User login successful');
+          loginModal.classList.remove('active');
+        } else alert('Invalid credentials');
       });
-      document.getElementById('googleLoginBtn').addEventListener('click', ()=> alert('Google login simulation'));
+      document.getElementById('googleLoginBtn').addEventListener('click', ()=> alert('Google login simulation.'));
       document.getElementById('adminLoginBtn').addEventListener('click', ()=>{
         if(document.getElementById('adminUsername').value==='admin' && document.getElementById('adminPassword').value==='admin123'){
-          document.getElementById('loginModal').classList.remove('active');
-          enterAdminMode();
-        }
+          loginModal.classList.remove('active');
+          openAdminDashboard();
+        } else alert('Admin login failed');
       });
 
-      function enterAdminMode() {
-        document.getElementById('mainSite').style.display = 'none';
-        document.getElementById('adminPage').classList.add('active');
+      function openAdminDashboard() {
+        document.getElementById('adminDashboard').classList.add('active');
         renderAdminBookings();
-        renderAdminLeads();
+        renderLeads();
         renderAdminGallery();
       }
-      document.getElementById('logoutAdminBtn').addEventListener('click', ()=>{
-        document.getElementById('adminPage').classList.remove('active');
-        document.getElementById('mainSite').style.display = 'block';
-      });
-
-      window.showAdminTab = (tab) => {
-        document.getElementById('adminBookingsTab').classList.add('hidden');
-        document.getElementById('adminLeadsTab').classList.add('hidden');
-        document.getElementById('adminMediaTab').classList.add('hidden');
-        document.getElementById('admin'+tab.charAt(0).toUpperCase()+tab.slice(1)+'Tab').classList.remove('hidden');
-      };
+      document.getElementById('closeAdminDashboard').addEventListener('click', ()=> document.getElementById('adminDashboard').classList.remove('active'));
 
       function renderAdminBookings() {
-        document.getElementById('adminBookingsTab').innerHTML = bookings.length ? bookings.map(b=> `<p>${b.service} - ${b.pet} (${b.breed})</p>`).join('') : 'No bookings';
+        const c = document.getElementById('bookingListContainer');
+        if(!bookings.length) { c.innerHTML='<p>No bookings.</p>'; return; }
+        c.innerHTML = bookings.map((b,i)=> `<div style="border-bottom:1px solid var(--border);padding:8px 0;"><strong>${b.service}</strong> - ${b.petName} (${b.breed}, ${b.age}) | ${b.owner}, 📍${b.location}, 📅${b.date}</div>`).join('');
       }
-      function renderAdminLeads() {
-        document.getElementById('adminLeadsTab').innerHTML = leads.length ? leads.map(l=> `<p>${l.name} - ${l.breed}, ${l.age}</p>`).join('') : 'No leads';
+      function renderLeads() {
+        const c = document.getElementById('leadsContainer');
+        if(!leads.length) { c.innerHTML='No leads.'; return; }
+        c.innerHTML = leads.map(l=> `<div>${l.name} (${l.email}) - Pet: ${l.breed}, ${l.age}</div>`).join('');
       }
 
-      // Media management
-      function renderAdminGallery() {
-        const container = document.getElementById('adminGallery');
-        container.innerHTML = mediaItems.map((item, idx) => `
-          <div class="gallery-item">
-            ${item.type==='video' ? `<video src="${item.url}" controls></video>` : `<img src="${item.url}" />`}
-            <button class="btn" style="position:absolute; top:4px; right:4px;" onclick="deleteMedia(${idx})"><i class="fas fa-trash"></i></button>
-          </div>`).join('');
-        renderUserGallery();
+      // Gallery functions
+      function saveGallery() {
+        localStorage.setItem(GALLERY_KEY, JSON.stringify(galleryItems));
+        renderPublicGallery();
+        if(document.getElementById('adminDashboard').classList.contains('active')) renderAdminGallery();
       }
-      window.deleteMedia = (idx) => {
-        mediaItems.splice(idx,1);
-        localStorage.setItem('bpMedia', JSON.stringify(mediaItems));
-        renderAdminGallery();
-      };
-      document.getElementById('uploadMediaBtn').addEventListener('click', ()=>{
-        const files = document.getElementById('mediaUpload').files;
-        if(!files.length) return;
-        Array.from(files).forEach(file => {
+
+      function renderPublicGallery() {
+        const container = document.getElementById('publicGallery');
+        if(!galleryItems.length) {
+          container.innerHTML = '<p>No media yet. Admin can upload from dashboard.</p>';
+          return;
+        }
+        container.innerHTML = galleryItems.map(item => {
+          if(item.type === 'video') {
+            return `<div class="gallery-item"><video controls src="${item.data}"></video></div>`;
+          } else {
+            return `<div class="gallery-item"><img src="${item.data}" alt="gallery"></div>`;
+          }
+        }).join('');
+      }
+
+      function renderAdminGallery() {
+        const container = document.getElementById('adminGalleryPreview');
+        if(!galleryItems.length) {
+          container.innerHTML = '<p>No media uploaded yet.</p>';
+          return;
+        }
+        container.innerHTML = galleryItems.map((item, index) => {
+          const media = item.type==='video' ? `<video controls src="${item.data}"></video>` : `<img src="${item.data}" alt="media">`;
+          return `<div class="gallery-item">${media}<button class="delete-media-btn" data-index="${index}"><i class="fas fa-trash"></i></button></div>`;
+        }).join('');
+        document.querySelectorAll('.delete-media-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const idx = e.currentTarget.getAttribute('data-index');
+            galleryItems.splice(idx,1);
+            saveGallery();
+          });
+        });
+      }
+
+      document.getElementById('triggerUpload').addEventListener('click', ()=> document.getElementById('mediaUpload').click());
+      document.getElementById('mediaUpload').addEventListener('change', function(e) {
+        const files = Array.from(e.target.files);
+        files.forEach(file => {
           const reader = new FileReader();
-          reader.onload = (e) => {
-            mediaItems.push({ url: e.target.result, type: file.type.startsWith('video')?'video':'image' });
-            localStorage.setItem('bpMedia', JSON.stringify(mediaItems));
-            renderAdminGallery();
+          reader.onload = (ev) => {
+            const type = file.type.startsWith('video') ? 'video' : 'image';
+            galleryItems.push({ type, data: ev.target.result, name: file.name });
+            saveGallery();
           };
           reader.readAsDataURL(file);
         });
+        this.value = '';
       });
-
-      function renderUserGallery() {
-        const gal = document.getElementById('userGallery');
-        if(gal) gal.innerHTML = mediaItems.map(m => `
-          <div class="gallery-item">${m.type==='video'? `<video src="${m.url}" controls></video>` : `<img src="${m.url}" />`}</div>`).join('');
-      }
-      renderUserGallery();
 
       // Booking
       document.getElementById('submitBooking').addEventListener('click', ()=>{
-        const b = {
-          service: document.getElementById('serviceSelect').value,
-          pet: document.getElementById('petName').value,
-          breed: document.getElementById('petBreed').value,
-          age: document.getElementById('petAge').value,
-          owner: document.getElementById('ownerName').value,
-          phone: document.getElementById('ownerPhone').value,
-          date: document.getElementById('bookingDate').value,
-          location: document.getElementById('ownerLocation').value
-        };
-        bookings.push(b);
-        localStorage.setItem('bpBookings', JSON.stringify(bookings));
-        window.open(`https://wa.me/919876543210?text=Booking: ${b.service} for ${b.pet}`, '_blank');
+        const service = document.getElementById('serviceSelect').value;
+        const pet = document.getElementById('petName').value.trim();
+        const breed = document.getElementById('petBreed').value.trim();
+        const age = document.getElementById('petAge').value.trim();
+        const owner = document.getElementById('ownerName').value.trim();
+        const phone = document.getElementById('ownerPhone').value.trim();
+        const date = document.getElementById('bookingDate').value;
+        const location = document.getElementById('ownerLocation').value.trim();
+        if(!service || !pet || !owner || !phone || !date) { alert('Fill required fields'); return; }
+        bookings.push({ service, petName:pet, breed, age, owner, phone, date, location, notes: document.getElementById('notes').value });
+        localStorage.setItem(BOOKINGS_KEY, JSON.stringify(bookings));
+        window.open(`https://wa.me/919876543210?text=BLACK PRADOS K9 Booking:%0A${service} for ${pet}%0AOwner:${owner}%0ALocation:${location}`, '_blank');
       });
 
       // Feedback
       document.getElementById('submitFeedback').addEventListener('click', ()=>{
-        const f = { name: document.getElementById('feedbackName').value, msg: document.getElementById('feedbackMsg').value };
-        feedbacks.push(f);
-        localStorage.setItem('bpFeedback', JSON.stringify(feedbacks));
-        renderFeedback();
+        const name = document.getElementById('feedbackName').value.trim();
+        const msg = document.getElementById('feedbackMessage').value.trim();
+        if(!name||!msg) return alert('Enter name and message');
+        feedbacks.push({name, msg, date: new Date().toLocaleString()});
+        localStorage.setItem(FEEDBACK_KEY, JSON.stringify(feedbacks));
+        displayFeedbacks();
+        document.getElementById('feedbackName').value='';
+        document.getElementById('feedbackMessage').value='';
       });
-      function renderFeedback() {
-        document.getElementById('feedbackList').innerHTML = feedbacks.map(f=> `<p><strong>${f.name}</strong>: ${f.msg}</p>`).join('');
+      function displayFeedbacks() {
+        document.getElementById('feedbackDisplay').innerHTML = feedbacks.map(f=> `<p><strong>${f.name}</strong>: ${f.msg}</p>`).join('');
       }
-      renderFeedback();
+      displayFeedbacks();
+      renderPublicGallery();
+
+      window.addEventListener('click', (e)=> {
+        if(e.target===dataPopup) dataPopup.classList.remove('active');
+        if(e.target===loginModal) loginModal.classList.remove('active');
+        if(e.target===document.getElementById('adminDashboard')) document.getElementById('adminDashboard').classList.remove('active');
+      });
     })();
   </script>
 </body>
