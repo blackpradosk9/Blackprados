@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Prados K9 — Wild to Wise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e0f11;
+    --ink-2:#191b1e;
+    --bone:#ece6d8;
+    --ember:#c89a56;
+    --moss:#2c2f33;
+    --steel:#8b8f94;
+    --line: rgba(236,230,216,0.13);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--bone);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  h1,h2,h3, .display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.95;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(19,22,26,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    max-width:1180px; margin:0 auto; padding:18px 32px;
+  }
+  .logo{
+    font-family:'Anton', sans-serif;
+    font-size:20px;
+    letter-spacing:0.02em;
+    text-transform:uppercase;
+    display:flex; align-items:center; gap:12px;
+    line-height:1;
+  }
+  .logo img{width:38px; height:38px; object-fit:cover; border-radius:50%; border:1px solid var(--line);}
+  .logo .word{display:flex; flex-direction:column; gap:3px;}
+  .logo .tag{font-family:'Work Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.18em; color:var(--ember);}
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--ember);}
+  .navlinks{display:flex; gap:34px; font-size:14px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;}
+  .navlinks a{opacity:0.75; transition:opacity 0.2s; position:relative;}
+  .navlinks a:hover{opacity:1;}
+  .navlinks a:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--ember); outline-offset:3px;}
+  .nav-cta{
+    background:var(--ember); color:var(--ink); font-weight:700; font-size:13px;
+    letter-spacing:0.04em; text-transform:uppercase; padding:10px 20px; border-radius:2px;
+    transition:transform 0.15s ease;
+  }
+  .nav-cta:hover{transform:translateY(-2px);}
+  .mobile-hide{display:flex;}
+  @media (max-width:820px){ .mobile-hide{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:170px 0 110px;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.3fr 1fr; gap:60px; align-items:end;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .eyebrow{
+    font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--ember); margin-bottom:22px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:26px; height:2px; background:var(--ember); display:inline-block;}
+  .hero h1{
+    font-size:clamp(48px, 8vw, 104px);
+    color:var(--bone);
+  }
+  .hero h1 .accent{color:var(--ember);}
+  .hero-sub{
+    max-width:420px; color:var(--steel); font-size:17px; padding-bottom:8px;
+  }
+  .hero-actions{display:flex; gap:16px; margin-top:34px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--ember); color:var(--ink); font-weight:700; font-size:14px;
+    letter-spacing:0.04em; text-transform:uppercase; padding:16px 30px; border-radius:2px;
+    transition:transform 0.15s ease, background 0.15s ease; display:inline-block;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--bone); font-weight:700; font-size:14px;
+    letter-spacing:0.04em; text-transform:uppercase; padding:16px 30px; border-radius:2px;
+    transition:border-color 0.15s ease, transform .15s ease; display:inline-block;
+  }
+  .btn-ghost:hover{border-color:var(--bone); transform:translateY(-2px);}
+
+  /* leash line signature */
+  .leash-wrap{ position:relative; height:100%; min-height:220px; }
+  .leash-svg{ width:100%; height:auto; overflow:visible; }
+  .leash-path{
+    fill:none; stroke:var(--ember); stroke-width:3; stroke-linecap:round;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 2.2s ease forwards 0.4s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  .leash-tag{
+    font-family:'Anton', sans-serif; font-size:13px; letter-spacing:0.08em;
+    fill:var(--bone); text-transform:uppercase;
+  }
+
+  .stat-row{
+    display:flex; gap:48px; margin-top:64px; padding-top:36px; border-top:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .stat-num{font-family:'Anton',sans-serif; font-size:38px; color:var(--bone);}
+  .stat-label{font-size:13px; color:var(--steel); text-transform:uppercase; letter-spacing:0.06em; margin-top:4px;}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:110px 0; border-bottom:1px solid var(--line);}
+  .sec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:64px; flex-wrap:wrap;}
+  .sec-head h2{font-size:clamp(34px,5vw,58px);}
+  .sec-head p{max-width:340px; color:var(--steel); font-size:15px;}
+  .cmd{
+    display:inline-block; font-family:'Anton',sans-serif; font-size:13px; letter-spacing:0.14em;
+    color:var(--ember); border:1px solid var(--ember); padding:6px 14px; border-radius:20px;
+    margin-bottom:20px;
+  }
+
+  /* ---------- BOARDING ---------- */
+  .board-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line);}
+  @media (max-width:820px){ .board-grid{grid-template-columns:1fr;} }
+  .board-card{ background:var(--ink); padding:40px 32px; transition:background 0.2s ease;}
+  .board-card:hover{background:var(--ink-2);}
+  .board-card .cmd{margin-bottom:28px;}
+  .board-card h3{font-size:24px; margin-bottom:14px; letter-spacing:0.01em;}
+  .board-card p{color:var(--steel); font-size:15px; margin-bottom:22px;}
+  .board-card .price{font-family:'Anton',sans-serif; font-size:28px; color:var(--bone);}
+  .board-card .price span{font-family:'Work Sans',sans-serif; font-size:13px; color:var(--steel); text-transform:uppercase; font-weight:600;}
+
+  /* ---------- TRAINING ---------- */
+  .train-list{display:flex; flex-direction:column;}
+  .train-row{
+    display:grid; grid-template-columns: 140px 1fr 260px; gap:32px; align-items:center;
+    padding:30px 0; border-top:1px solid var(--line);
+  }
+  .train-row:last-child{border-bottom:1px solid var(--line);}
+  @media (max-width:760px){ .train-row{grid-template-columns:1fr; gap:10px;} }
+  .train-row .cmd{margin:0;}
+  .train-row h3{font-size:26px;}
+  .train-row p{color:var(--steel); font-size:14.5px;}
+  .train-row .lvl{
+    justify-self:end; display:flex; gap:6px;
+  }
+  @media (max-width:760px){ .train-row .lvl{justify-self:start;} }
+  .lvl-dot{width:9px; height:9px; border-radius:50%; background:var(--line);}
+  .lvl-dot.on{background:var(--ember);}
+
+  /* ---------- WHY / ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:start;}
+  @media (max-width:900px){ .about-grid{grid-template-columns:1fr;} }
+  .about-copy p{color:var(--steel); font-size:16px; margin-bottom:20px; max-width:480px;}
+  .about-copy p:first-of-type{color:var(--bone); font-size:20px; font-weight:500;}
+  .facts{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);}
+  .fact{background:var(--ink); padding:28px;}
+  .fact .stat-num{font-size:30px;}
+  .fact .stat-label{margin-top:6px;}
+
+  /* ---------- TESTIMONIAL STRIP ---------- */
+  .strip{
+    background:var(--moss); border-bottom:1px solid var(--line); padding:70px 0;
+  }
+  .strip blockquote{
+    font-family:'Anton', sans-serif; font-size:clamp(24px,3.4vw,40px);
+    max-width:900px; text-transform:none; letter-spacing:0; line-height:1.15;
+  }
+  .strip cite{display:block; margin-top:24px; font-style:normal; font-size:14px; color:rgba(236,230,216,0.7); font-family:'Work Sans',sans-serif; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px;}
+  @media (max-width:900px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-info h2{font-size:clamp(34px,5vw,54px); margin-bottom:22px;}
+  .contact-info p{color:var(--steel); font-size:16px; max-width:400px; margin-bottom:34px;}
+  .info-line{display:flex; justify-content:space-between; padding:18px 0; border-top:1px solid var(--line); font-size:14px;}
+  .info-line:last-child{border-bottom:1px solid var(--line);}
+  .info-line span:first-child{color:var(--steel); text-transform:uppercase; letter-spacing:0.06em; font-weight:600;}
+
+  form{display:flex; flex-direction:column; gap:18px;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  label{font-size:12px; text-transform:uppercase; letter-spacing:0.08em; color:var(--steel); font-weight:600;}
+  input, select, textarea{
+    background:var(--ink-2); border:1px solid var(--line); color:var(--bone);
+    padding:14px 16px; font-family:'Work Sans',sans-serif; font-size:15px; border-radius:2px;
+  }
+  input:focus, select:focus, textarea:focus{outline:2px solid var(--ember); outline-offset:1px; border-color:var(--ember);}
+  textarea{resize:vertical; min-height:90px;}
+  .submit-btn{
+    background:var(--ember); color:var(--ink); font-weight:700; font-size:14px;
+    letter-spacing:0.04em; text-transform:uppercase; padding:16px 30px; border-radius:2px;
+    border:none; cursor:pointer; margin-top:8px; transition:transform 0.15s ease;
+    width:fit-content;
+  }
+  .submit-btn:hover{transform:translateY(-2px);}
+  .form-msg{font-size:13px; color:var(--ember); min-height:18px;}
+
+  /* ---------- INTAKE MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:1000;
+    background:rgba(8,9,10,0.82);
+    backdrop-filter: blur(4px);
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+    opacity:1; transition:opacity 0.25s ease;
+  }
+  .modal-overlay.hidden{opacity:0; pointer-events:none;}
+  .modal-card{
+    background:var(--ink-2); border:1px solid var(--line); border-radius:4px;
+    max-width:520px; width:100%; max-height:88vh; overflow-y:auto;
+    padding:40px; position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,0.5);
+  }
+  .modal-close{
+    position:absolute; top:18px; right:18px; background:none; border:none;
+    color:var(--steel); font-size:22px; cursor:pointer; line-height:1; padding:6px;
+  }
+  .modal-close:hover{color:var(--bone);}
+  .modal-head{display:flex; align-items:center; gap:12px; margin-bottom:6px;}
+  .modal-head img{width:40px; height:40px; border-radius:50%; border:1px solid var(--line); object-fit:cover;}
+  .modal-card .cmd{margin-bottom:16px;}
+  .modal-card h2{font-size:30px; margin-bottom:10px;}
+  .modal-card > p{color:var(--steel); font-size:14.5px; margin-bottom:26px; max-width:420px;}
+  .modal-card form{gap:14px;}
+  .modal-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:480px){ .modal-row{grid-template-columns:1fr;} }
+  .modal-skip{
+    text-align:center; font-size:13px; color:var(--steel); margin-top:16px;
+    text-decoration:underline; cursor:pointer; background:none; border:none; width:100%;
+  }
+  .modal-skip:hover{color:var(--bone);}
+
+
+  /* ---------- INCLUDED / PROCESS ---------- */
+  .tag-list{display:flex; flex-wrap:wrap; gap:10px; margin-top:36px;}
+  .tag-item{
+    font-size:13px; font-weight:600; color:var(--bone); border:1px solid var(--line);
+    padding:9px 16px; border-radius:20px; display:flex; align-items:center; gap:8px;
+  }
+  .tag-item::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--ember); display:inline-block;}
+
+  .process{display:grid; grid-template-columns:repeat(5,1fr); gap:24px; margin-top:56px;}
+  @media (max-width:900px){ .process{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .process{grid-template-columns:1fr;} }
+  .process-step{border-top:2px solid var(--ember); padding-top:16px;}
+  .process-step .pnum{font-family:'Anton',sans-serif; font-size:13px; color:var(--ember); letter-spacing:0.08em; margin-bottom:8px; display:block;}
+  .process-step h4{font-family:'Work Sans',sans-serif; font-weight:700; font-size:15px; text-transform:none; margin-bottom:6px;}
+  .process-step p{font-size:13.5px; color:var(--steel);}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:44px 0; }
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .foot-row .logo{font-size:17px;}
+  .foot-links{display:flex; gap:26px; font-size:13px; color:var(--steel);}
+  .foot-links a:hover{color:var(--bone);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><img src="logo.jpg" alt="Black Prados K9 crest"><span class="word">Black Prados K9<span class="tag">Wild to Wise</span></span></div>
+    <div class="navlinks mobile-hide">
+      <a href="#boarding">Boarding</a>
+      <a href="#training">Training</a>
+      <a href="#grooming">Grooming</a>
+      <a href="#daycare">Day Care</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Book a Stay</a>
+  </nav>
+</header>
+
+<div class="modal-overlay" id="introModal">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-head">
+      <img src="logo.jpg" alt="Black Prados K9 crest">
+    </div>
+    <div class="cmd">Welcome</div>
+    <h2>Tell us about<br>your dog.</h2>
+    <p>A few quick details help us match your dog to the right group and handler before you even book. Takes under a minute.</p>
+    <form id="introForm">
+      <div class="modal-row">
+        <div class="field">
+          <label for="ownerName">Your name</label>
+          <input id="ownerName" name="ownerName" type="text" required placeholder="Jordan Lee">
+        </div>
+        <div class="field">
+          <label for="ownerPhone">Phone</label>
+          <input id="ownerPhone" name="ownerPhone" type="tel" required placeholder="(555) 019-2847">
+        </div>
+      </div>
+      <div class="field">
+        <label for="ownerEmail">Email</label>
+        <input id="ownerEmail" name="ownerEmail" type="email" placeholder="jordan@email.com">
+      </div>
+      <div class="modal-row">
+        <div class="field">
+          <label for="dogNameModal">Dog's name</label>
+          <input id="dogNameModal" name="dogNameModal" type="text" required placeholder="Biscuit">
+        </div>
+        <div class="field">
+          <label for="dogBreed">Breed</label>
+          <input id="dogBreed" name="dogBreed" type="text" placeholder="German Shepherd">
+        </div>
+      </div>
+      <div class="modal-row">
+        <div class="field">
+          <label for="dogAge">Dog's age</label>
+          <input id="dogAge" name="dogAge" type="text" placeholder="2 years">
+        </div>
+        <div class="field">
+          <label for="interestModal">Interested in</label>
+          <select id="interestModal" name="interestModal">
+            <option>Boarding</option>
+            <option>Training</option>
+            <option>Grooming</option>
+            <option>Day Care</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">Continue to site</button>
+    </form>
+    <button class="modal-skip" id="modalSkip">Skip for now</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Boarding &amp; Training, Under One Roof</div>
+      <h1>Wild to <span class="accent">wise.</span></h1>
+      <p class="hero-sub">Overnight boarding with real yard time, and training programs built by certified handlers — not a kennel that also takes commands.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book a stay</a>
+        <a href="#training" class="btn-ghost">See training plans</a>
+      </div>
+    </div>
+    <div class="leash-wrap">
+      <svg class="leash-svg" viewBox="0 0 320 220" aria-hidden="true">
+        <path class="leash-path" d="M10,20 C 80,10 60,90 140,80 S 220,150 190,190 S 300,210 300,150"/>
+        <circle cx="10" cy="20" r="5" fill="#ff5a36"/>
+        <text class="leash-tag" x="220" y="120">HEEL</text>
+        <text class="leash-tag" x="30" y="60">SIT</text>
+        <text class="leash-tag" x="230" y="200">STAY</text>
+      </svg>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stat-row">
+      <div><div class="stat-num">14</div><div class="stat-label">Years running</div></div>
+      <div><div class="stat-num">2 acres</div><div class="stat-label">Fenced play yard</div></div>
+      <div><div class="stat-num">1:4</div><div class="stat-label">Handler to dog ratio</div></div>
+      <div><div class="stat-num">98%</div><div class="stat-label">Rebooking rate</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="boarding">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="cmd">Boarding</div>
+        <h2>Overnight stays,<br>zero cage time.</h2>
+      </div>
+      <p>Every stay includes three yard sessions a day, a private suite, and a daily photo update — no add-on required.</p>
+    </div>
+    <div class="board-grid">
+      <div class="board-card">
+        <div class="cmd">Standard Suite</div>
+        <h3>The Den</h3>
+        <p>A private indoor-outdoor suite with raised bedding, three yard sessions, and twice-daily feeding to your schedule.</p>
+        <div class="price">$58<span> / night</span></div>
+      </div>
+      <div class="board-card">
+        <div class="cmd">Most Booked</div>
+        <h3>The Pack Suite</h3>
+        <p>Everything in The Den, plus supervised group play with dogs matched to your dog's energy and size.</p>
+        <div class="price">$74<span> / night</span></div>
+      </div>
+      <div class="board-card">
+        <div class="cmd">Extended Stay</div>
+        <h3>The Homestead</h3>
+        <p>For stays over a week: a dedicated handler, one-on-one enrichment time, and a nightly video call if you want it.</p>
+        <div class="price">$92<span> / night</span></div>
+      </div>
+    </div>
+    <div class="tag-list">
+      <span class="tag-item">Daily photo update</span>
+      <span class="tag-item">Climate-controlled suites</span>
+      <span class="tag-item">Own bedding welcome</span>
+      <span class="tag-item">Medication administration</span>
+      <span class="tag-item">Vet on call</span>
+    </div>
+  </div>
+</section>
+
+<section id="training">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="cmd">Training</div>
+        <h2>Programs that<br>travel home with you.</h2>
+      </div>
+      <p>Every program ends with a handler session — we teach you the cues, not just the dog.</p>
+    </div>
+    <div class="train-list">
+      <div class="train-row">
+        <div class="cmd">Puppy</div>
+        <h3>Foundations</h3>
+        <p>Crate manners, name recognition, and the first commands — for pups 8 to 20 weeks.</p>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot"></span><span class="lvl-dot"></span><span class="lvl-dot"></span></div>
+      </div>
+      <div class="train-row">
+        <div class="cmd">Obedience</div>
+        <h3>House Manners</h3>
+        <p>Sit, stay, heel, and recall, reinforced on-leash and off, in the house and out in the yard.</p>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span><span class="lvl-dot"></span></div>
+      </div>
+      <div class="train-row">
+        <div class="cmd">Behavior</div>
+        <h3>Reactivity &amp; Anxiety</h3>
+        <p>One-on-one work for leash reactivity, separation anxiety, and resource guarding, at the dog's pace.</p>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot"></span></div>
+      </div>
+      <div class="train-row">
+        <div class="cmd">Advanced</div>
+        <h3>Off-Leash Reliability</h3>
+        <p>Distance commands, distraction-proofing, and real-world recall for dogs ready to go off-leash.</p>
+        <div class="lvl"><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span><span class="lvl-dot on"></span></div>
+      </div>
+    </div>
+    <div class="process">
+      <div class="process-step"><span class="pnum">Step 1</span><h4>Assessment</h4><p>A free 30-minute evaluation to set a baseline and pick the right program.</p></div>
+      <div class="process-step"><span class="pnum">Step 2</span><h4>Daily sessions</h4><p>Short, focused sessions — dogs learn faster in bursts than marathons.</p></div>
+      <div class="process-step"><span class="pnum">Step 3</span><h4>Real-world reps</h4><p>Commands practiced in the yard, on walks, and around distractions.</p></div>
+      <div class="process-step"><span class="pnum">Step 4</span><h4>Handler session</h4><p>You come in and run the commands yourself, coached by the trainer.</p></div>
+      <div class="process-step"><span class="pnum">Step 5</span><h4>30-day follow-up</h4><p>A check-in call to troubleshoot anything that's slipping at home.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="grooming">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="cmd">Grooming</div>
+        <h2>Wash, trim,<br>and looking sharp.</h2>
+      </div>
+      <p>Every groom is handled by one groomer start to finish, so your dog isn't passed station to station.</p>
+    </div>
+    <div class="board-grid">
+      <div class="board-card">
+        <div class="cmd">Quick Service</div>
+        <h3>Wash &amp; Go</h3>
+        <p>Bath with breed-appropriate shampoo, blow-dry, brush-out, ear cleaning, and nail trim.</p>
+        <div class="price">$35<span> / visit</span></div>
+      </div>
+      <div class="board-card">
+        <div class="cmd">Most Booked</div>
+        <h3>Full Groom</h3>
+        <p>Everything in Wash &amp; Go, plus a breed-standard or custom haircut and a light finishing spritz.</p>
+        <div class="price">$65<span> / visit</span></div>
+      </div>
+      <div class="board-card">
+        <div class="cmd">Deep Treatment</div>
+        <h3>Spa Package</h3>
+        <p>Full groom plus deep-conditioning treatment, teeth brushing, and paw balm for cracked pads.</p>
+        <div class="price">$85<span> / visit</span></div>
+      </div>
+    </div>
+    <div class="process">
+      <div class="process-step"><span class="pnum">Step 1</span><h4>Check-in</h4><p>A quick look at skin, coat, and ears before we start.</p></div>
+      <div class="process-step"><span class="pnum">Step 2</span><h4>Bath &amp; dry</h4><p>Breed-appropriate shampoo, hand-dried — no cage dryers.</p></div>
+      <div class="process-step"><span class="pnum">Step 3</span><h4>Trim &amp; style</h4><p>Breed-standard or custom cut, done by hand and clipper.</p></div>
+      <div class="process-step"><span class="pnum">Step 4</span><h4>Nails &amp; ears</h4><p>Trim, file, and clean — the parts most dogs hate, done fast.</p></div>
+      <div class="process-step"><span class="pnum">Step 5</span><h4>Finishing touch</h4><p>Brush-out, light spritz, and a bandana if your dog will tolerate it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="daycare">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="cmd">Day Care</div>
+        <h2>Drop off tired,<br>pick up happy.</h2>
+      </div>
+      <p>Dogs are grouped by size and energy, with a handler in every play yard — never left to a camera.</p>
+    </div>
+    <div class="board-grid">
+      <div class="board-card">
+        <div class="cmd">Single Visit</div>
+        <h3>Half Day</h3>
+        <p>Up to 5 hours of supervised group play, rest breaks, and fresh water on demand.</p>
+        <div class="price">$28<span> / visit</span></div>
+      </div>
+      <div class="board-card">
+        <div class="cmd">Most Booked</div>
+        <h3>Full Day</h3>
+        <p>Drop off in the morning, pick up by close — group play, rest, and a midday enrichment activity.</p>
+        <div class="price">$40<span> / visit</span></div>
+      </div>
+      <div class="board-card">
+        <div class="cmd">Regulars</div>
+        <h3>Weekly Pass</h3>
+        <p>Five full days, use them anytime in a rolling 30-day window. Ideal for work-week regulars.</p>
+        <div class="price">$175<span> / week</span></div>
+      </div>
+    </div>
+    <div class="train-list" style="margin-top:56px;">
+      <div class="train-row">
+        <div class="cmd">7:00 AM</div>
+        <h3>Drop-off</h3>
+        <p>Quick temperature and temperament check-in before your dog joins the yard.</p>
+        <div class="lvl"></div>
+      </div>
+      <div class="train-row">
+        <div class="cmd">8:30 AM</div>
+        <h3>Group play</h3>
+        <p>Free play in size- and energy-matched groups, always with a handler in the yard.</p>
+        <div class="lvl"></div>
+      </div>
+      <div class="train-row">
+        <div class="cmd">12:00 PM</div>
+        <h3>Rest &amp; enrichment</h3>
+        <p>A quiet break with puzzle feeders and chew time to reset energy for the afternoon.</p>
+        <div class="lvl"></div>
+      </div>
+      <div class="train-row">
+        <div class="cmd">3:30 PM</div>
+        <h3>Second play session</h3>
+        <p>A shorter round of group play before wind-down.</p>
+        <div class="lvl"></div>
+      </div>
+      <div class="train-row">
+        <div class="cmd">5:30 PM</div>
+        <h3>Pick-up window</h3>
+        <p>A quick note home on how your dog's day went — energy, appetite, anything to watch.</p>
+        <div class="lvl"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <blockquote>
+      "We boarded our reactive rescue for two weeks expecting the worst. He came home calmer than we'd ever seen him — and actually knew 'leave it.'"
+      <cite>— Marisol T., boarded &amp; trained a rescue shepherd mix</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <div class="cmd">About</div>
+      <p>Black Prados K9 started in a converted barn in 2011, because our founder — a certified trainer — got tired of dropping her own dog at kennels that were just cages with a yard attached.</p>
+      <p>Every handler on staff is certified in canine first aid and completes a 6-month apprenticeship under a lead trainer before working solo. Dogs are grouped by temperament, not just size, and every group play session is supervised, never left to a camera.</p>
+      <p>We keep it small on purpose. Capping intake means every dog gets seen, not just fed and let out.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="stat-num">6</div><div class="stat-label">Certified handlers on staff</div></div>
+      <div class="fact"><div class="stat-num">40</div><div class="stat-label">Max dogs on site</div></div>
+      <div class="fact"><div class="stat-num">3x</div><div class="stat-label">Daily yard sessions</div></div>
+      <div class="fact"><div class="stat-num">24/7</div><div class="stat-label">On-site supervision</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <div class="cmd">Contact</div>
+      <h2>Let's meet<br>your dog.</h2>
+      <p>Every new dog starts with a free meet-and-greet, so we can match them to the right group before any stay or session.</p>
+      <div class="info-line"><span>Address</span><span>4420 Orchard Run Rd, Thrissur</span></div>
+      <div class="info-line"><span>Phone</span><span>(555) 019-2847</span></div>
+      <div class="info-line"><span>Hours</span><span>Mon–Sat, 7am–7pm</span></div>
+      <div class="info-line"><span>Drop-off</span><span>By appointment only</span></div>
+    </div>
+    <form id="contactForm">
+      <div class="field">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" required placeholder="Jordan Lee">
+      </div>
+      <div class="field">
+        <label for="dogname">Dog's name</label>
+        <input id="dogname" name="dogname" type="text" placeholder="Biscuit">
+      </div>
+      <div class="field">
+        <label for="service">What do you need?</label>
+        <select id="service" name="service">
+          <option>Boarding</option>
+          <option>Training</option>
+          <option>Grooming</option>
+          <option>Day Care</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Anything we should know?</label>
+        <textarea id="message" name="message" placeholder="Age, breed, temperament, dates..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Request a meet-and-greet</button>
+      <div class="form-msg" id="formMsg" role="status"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="logo"><img src="logo.jpg" alt="Black Prados K9 crest"><span class="word">Black Prados K9</span></div>
+    <div class="foot-links">
+      <a href="#boarding">Boarding</a>
+      <a href="#training">Training</a>
+      <a href="#grooming">Grooming</a>
+      <a href="#daycare">Day Care</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="foot-links"><span>&copy; 2026 Black Prados K9</span></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = document.getElementById('formMsg');
+    msg.textContent = "Thanks — we'll reach out within one business day to set up your meet-and-greet.";
+    this.reset();
+  });
+
+  // Intake popup
+  var modal = document.getElementById('introModal');
+  var introForm = document.getElementById('introForm');
+
+  function closeModal(){
+    modal.classList.add('hidden');
+    setTimeout(function(){ modal.style.display = 'none'; }, 250);
+  }
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalSkip').addEventListener('click', closeModal);
+
+  introForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    // Carry the details over to the contact form at the bottom of the page
+    document.getElementById('name').value = document.getElementById('ownerName').value;
+    document.getElementById('dogname').value = document.getElementById('dogNameModal').value;
+    var interestVal = document.getElementById('interestModal').value;
+    var serviceSelect = document.getElementById('service');
+    for (var i = 0; i < serviceSelect.options.length; i++){
+      if (serviceSelect.options[i].text === interestVal){ serviceSelect.selectedIndex = i; }
+    }
+    closeModal();
+  });
+</script>
+
+</body>
+</html>
