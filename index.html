@@ -65,7 +65,7 @@
   .logo .word{display:flex; flex-direction:column; gap:3px;}
   .logo .tag{font-family:'Work Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.18em; color:var(--ember);}
   .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--ember);}
-  .navlinks{display:flex; gap:34px; font-size:14px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase;}
+  .navlinks{display:flex; gap:24px; font-size:13.5px; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;}
   .navlinks a{opacity:0.75; transition:opacity 0.2s; position:relative;}
   .navlinks a:hover{opacity:1;}
   .navlinks a:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--ember); outline-offset:3px;}
@@ -276,6 +276,43 @@
   .process-step h4{font-family:'Work Sans',sans-serif; font-weight:700; font-size:15px; text-transform:none; margin-bottom:6px;}
   .process-step p{font-size:13.5px; color:var(--steel);}
 
+  /* ---------- GALLERY ---------- */
+  .gallery-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
+  @media (max-width:900px){ .gallery-grid{grid-template-columns:repeat(2,1fr);} }
+  .gallery-tile{
+    aspect-ratio:1/1; border-radius:2px; position:relative; overflow:hidden;
+    border:1px solid var(--line);
+    background:
+      radial-gradient(circle at 30% 30%, rgba(200,154,86,0.18), transparent 60%),
+      linear-gradient(155deg, var(--ink-2), var(--ink));
+    display:flex; align-items:flex-end; padding:16px;
+  }
+  .gallery-tile span{
+    font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--steel); position:relative; z-index:2;
+  }
+  .gallery-tile::after{
+    content:"+"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-family:'Anton',sans-serif; font-size:34px; color:var(--line);
+  }
+  .gallery-tile.wide{grid-column:span 2;}
+  .gallery-note{margin-top:28px; font-size:13.5px; color:var(--steel);}
+
+  /* ---------- FEEDBACK ---------- */
+  .feedback-grid{display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:start;}
+  @media (max-width:900px){ .feedback-grid{grid-template-columns:1fr;} }
+  .fb-quotes{display:flex; flex-direction:column; gap:26px;}
+  .fb-quote{border-top:1px solid var(--line); padding-top:22px;}
+  .fb-quote .stars{color:var(--ember); font-size:14px; letter-spacing:2px; margin-bottom:10px;}
+  .fb-quote p{font-size:15.5px; color:var(--bone); margin-bottom:10px;}
+  .fb-quote cite{font-style:normal; font-size:13px; color:var(--steel); text-transform:uppercase; letter-spacing:0.05em; font-weight:600;}
+  .star-select{display:flex; gap:8px;}
+  .star-select button{
+    background:none; border:1px solid var(--line); color:var(--steel); width:40px; height:40px;
+    border-radius:2px; font-size:16px; cursor:pointer; transition:all 0.15s ease;
+  }
+  .star-select button.active, .star-select button:hover{border-color:var(--ember); color:var(--ember);}
+
   /* ---------- FOOTER ---------- */
   footer{padding:44px 0; }
   .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
@@ -283,6 +320,7 @@
   .foot-links{display:flex; gap:26px; font-size:13px; color:var(--steel);}
   .foot-links a:hover{color:var(--bone);}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -294,6 +332,8 @@
       <a href="#training">Training</a>
       <a href="#grooming">Grooming</a>
       <a href="#daycare">Day Care</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#feedback">Feedback</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
@@ -395,26 +435,26 @@
         <div class="cmd">Boarding</div>
         <h2>Overnight stays,<br>zero cage time.</h2>
       </div>
-      <p>Every stay includes three yard sessions a day, a private suite, and a daily photo update — no add-on required.</p>
+      <p>Every stay includes three yard sessions a day, a private suite, and a daily photo update — no add-on required. Payment by GPay or cash, settled directly with us — no online checkout.</p>
     </div>
     <div class="board-grid">
       <div class="board-card">
         <div class="cmd">Standard Suite</div>
         <h3>The Den</h3>
         <p>A private indoor-outdoor suite with raised bedding, three yard sessions, and twice-daily feeding to your schedule.</p>
-        <div class="price">$58<span> / night</span></div>
+        <div class="price">₹700<span> / night</span></div>
       </div>
       <div class="board-card">
         <div class="cmd">Most Booked</div>
         <h3>The Pack Suite</h3>
         <p>Everything in The Den, plus supervised group play with dogs matched to your dog's energy and size.</p>
-        <div class="price">$74<span> / night</span></div>
+        <div class="price">₹950<span> / night</span></div>
       </div>
       <div class="board-card">
         <div class="cmd">Extended Stay</div>
         <h3>The Homestead</h3>
         <p>For stays over a week: a dedicated handler, one-on-one enrichment time, and a nightly video call if you want it.</p>
-        <div class="price">$92<span> / night</span></div>
+        <div class="price">₹1,300<span> / night</span></div>
       </div>
     </div>
     <div class="tag-list">
@@ -479,26 +519,26 @@
         <div class="cmd">Grooming</div>
         <h2>Wash, trim,<br>and looking sharp.</h2>
       </div>
-      <p>Every groom is handled by one groomer start to finish, so your dog isn't passed station to station.</p>
+      <p>Every groom is handled by one groomer start to finish, so your dog isn't passed station to station. Payment by GPay or cash on the day.</p>
     </div>
     <div class="board-grid">
       <div class="board-card">
         <div class="cmd">Quick Service</div>
         <h3>Wash &amp; Go</h3>
         <p>Bath with breed-appropriate shampoo, blow-dry, brush-out, ear cleaning, and nail trim.</p>
-        <div class="price">$35<span> / visit</span></div>
+        <div class="price">₹600<span> / visit</span></div>
       </div>
       <div class="board-card">
         <div class="cmd">Most Booked</div>
         <h3>Full Groom</h3>
         <p>Everything in Wash &amp; Go, plus a breed-standard or custom haircut and a light finishing spritz.</p>
-        <div class="price">$65<span> / visit</span></div>
+        <div class="price">₹1,200<span> / visit</span></div>
       </div>
       <div class="board-card">
         <div class="cmd">Deep Treatment</div>
         <h3>Spa Package</h3>
         <p>Full groom plus deep-conditioning treatment, teeth brushing, and paw balm for cracked pads.</p>
-        <div class="price">$85<span> / visit</span></div>
+        <div class="price">₹1,800<span> / visit</span></div>
       </div>
     </div>
     <div class="process">
@@ -518,26 +558,26 @@
         <div class="cmd">Day Care</div>
         <h2>Drop off tired,<br>pick up happy.</h2>
       </div>
-      <p>Dogs are grouped by size and energy, with a handler in every play yard — never left to a camera.</p>
+      <p>Dogs are grouped by size and energy, with a handler in every play yard — never left to a camera. Payment by GPay or cash on drop-off.</p>
     </div>
     <div class="board-grid">
       <div class="board-card">
         <div class="cmd">Single Visit</div>
         <h3>Half Day</h3>
         <p>Up to 5 hours of supervised group play, rest breaks, and fresh water on demand.</p>
-        <div class="price">$28<span> / visit</span></div>
+        <div class="price">₹450<span> / visit</span></div>
       </div>
       <div class="board-card">
         <div class="cmd">Most Booked</div>
         <h3>Full Day</h3>
         <p>Drop off in the morning, pick up by close — group play, rest, and a midday enrichment activity.</p>
-        <div class="price">$40<span> / visit</span></div>
+        <div class="price">₹650<span> / visit</span></div>
       </div>
       <div class="board-card">
         <div class="cmd">Regulars</div>
         <h3>Weekly Pass</h3>
         <p>Five full days, use them anytime in a rolling 30-day window. Ideal for work-week regulars.</p>
-        <div class="price">$175<span> / week</span></div>
+        <div class="price">₹2,800<span> / week</span></div>
       </div>
     </div>
     <div class="train-list" style="margin-top:56px;">
@@ -575,12 +615,93 @@
   </div>
 </section>
 
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="cmd">Gallery</div>
+        <h2>A look inside<br>the yard.</h2>
+      </div>
+      <p>Photos from boarding stays, training sessions, groom days, and the play yard.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile wide"><span>Play yard</span></div>
+      <div class="gallery-tile"><span>Training session</span></div>
+      <div class="gallery-tile"><span>Groom day</span></div>
+      <div class="gallery-tile"><span>Boarding suite</span></div>
+      <div class="gallery-tile"><span>Day care group play</span></div>
+      <div class="gallery-tile wide"><span>Off-leash work</span></div>
+      <div class="gallery-tile"><span>Bath &amp; brush-out</span></div>
+    </div>
+    <p class="gallery-note">Photos coming soon — send over your favorites and we'll drop them straight in.</p>
+  </div>
+</section>
+
 <section class="strip">
   <div class="wrap">
     <blockquote>
       "We boarded our reactive rescue for two weeks expecting the worst. He came home calmer than we'd ever seen him — and actually knew 'leave it.'"
       <cite>— Marisol T., boarded &amp; trained a rescue shepherd mix</cite>
     </blockquote>
+  </div>
+</section>
+
+<section id="feedback">
+  <div class="wrap feedback-grid">
+    <div>
+      <div class="cmd">Feedback</div>
+      <h2>What owners<br>are saying.</h2>
+      <div class="fb-quotes">
+        <div class="fb-quote">
+          <div class="stars">★★★★★</div>
+          <p>Our puppy went in chewing everything in sight and came out of Foundations actually walking on a loose leash.</p>
+          <cite>— Arjun K.</cite>
+        </div>
+        <div class="fb-quote">
+          <div class="stars">★★★★★</div>
+          <p>Day care has been a lifesaver for our work-from-home chaos. He comes home worn out and calm every time.</p>
+          <cite>— Fenny M.</cite>
+        </div>
+        <div class="fb-quote">
+          <div class="stars">★★★★☆</div>
+          <p>Groomers were patient with a dog who hates baths. Took a bit longer than expected but the result was worth it.</p>
+          <cite>— Renjith P.</cite>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form id="feedbackForm">
+        <div class="field">
+          <label for="fbName">Your name</label>
+          <input id="fbName" name="fbName" type="text" required placeholder="Jordan Lee">
+        </div>
+        <div class="field">
+          <label for="fbService">Service used</label>
+          <select id="fbService" name="fbService">
+            <option>Boarding</option>
+            <option>Training</option>
+            <option>Grooming</option>
+            <option>Day Care</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Rating</label>
+          <div class="star-select" id="starSelect">
+            <button type="button" data-val="1">★</button>
+            <button type="button" data-val="2">★</button>
+            <button type="button" data-val="3">★</button>
+            <button type="button" data-val="4">★</button>
+            <button type="button" data-val="5">★</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fbMessage">Your feedback</label>
+          <textarea id="fbMessage" name="fbMessage" placeholder="How did it go?"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit feedback</button>
+        <div class="form-msg" id="fbMsg" role="status"></div>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -611,6 +732,7 @@
       <div class="info-line"><span>Phone</span><span>(555) 019-2847</span></div>
       <div class="info-line"><span>Hours</span><span>Mon–Sat, 7am–7pm</span></div>
       <div class="info-line"><span>Drop-off</span><span>By appointment only</span></div>
+      <div class="info-line"><span>Payment</span><span>GPay or cash — paid directly, no online checkout</span></div>
     </div>
     <form id="contactForm">
       <div class="field">
@@ -657,10 +779,42 @@
 </footer>
 
 <script>
+  // ===== EmailJS setup =====
+  // 1. Create a free account at emailjs.com
+  // 2. Add an Email Service (e.g. connect your Gmail) — copy its Service ID below
+  // 3. Create an Email Template with variables: from_name, dog_name, service, message — copy its Template ID below
+  // 4. Find your Public Key under Account > API Keys — copy it below
+  // 5. Set OWNER_EMAIL to the inbox that should receive new requests
+  var EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+  var EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
+  var EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+  var OWNER_EMAIL = "blackpradosk9@gmail.com";
+
+  if (window.emailjs && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
+
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
     var msg = document.getElementById('formMsg');
-    msg.textContent = "Thanks — we'll reach out within one business day to set up your meet-and-greet.";
+
+    var ownerName = document.getElementById('name').value;
+    var dogName = document.getElementById('dogname').value;
+    var service = document.getElementById('service').value;
+    var details = document.getElementById('message').value;
+
+    // Send an automatic email notification to the owner
+    if (window.emailjs && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        to_email: OWNER_EMAIL,
+        from_name: ownerName,
+        dog_name: dogName || "-",
+        service: service,
+        message: details || "-"
+      });
+    }
+
+    msg.textContent = "Request sent — we'll reach out within one business day.";
     this.reset();
   });
 
@@ -687,6 +841,27 @@
       if (serviceSelect.options[i].text === interestVal){ serviceSelect.selectedIndex = i; }
     }
     closeModal();
+  });
+
+  // Star rating selector
+  var starButtons = document.querySelectorAll('#starSelect button');
+  var currentRating = 0;
+  starButtons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      currentRating = parseInt(this.getAttribute('data-val'));
+      starButtons.forEach(function(b){
+        b.classList.toggle('active', parseInt(b.getAttribute('data-val')) <= currentRating);
+      });
+    });
+  });
+
+  document.getElementById('feedbackForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = document.getElementById('fbMsg');
+    msg.textContent = "Thanks for the feedback — it means a lot to us.";
+    this.reset();
+    starButtons.forEach(function(b){ b.classList.remove('active'); });
+    currentRating = 0;
   });
 </script>
 
