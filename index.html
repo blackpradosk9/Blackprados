@@ -735,9 +735,19 @@
       <div class="info-line"><span>Payment</span><span>GPay or cash — paid directly, no online checkout</span></div>
     </div>
     <form id="contactForm">
+      <div class="modal-row">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required placeholder="Jordan Lee">
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" required placeholder="(555) 019-2847">
+        </div>
+      </div>
       <div class="field">
-        <label for="name">Your name</label>
-        <input id="name" name="name" type="text" required placeholder="Jordan Lee">
+        <label for="location">Your location / area</label>
+        <input id="location" name="location" type="text" required placeholder="Thrissur, Kerala">
       </div>
       <div class="field">
         <label for="dogname">Dog's name</label>
@@ -782,7 +792,7 @@
   // ===== EmailJS setup =====
   // 1. Create a free account at emailjs.com
   // 2. Add an Email Service (e.g. connect your Gmail) — copy its Service ID below
-  // 3. Create an Email Template with variables: from_name, dog_name, service, message — copy its Template ID below
+  // 3. Create an Email Template with variables: from_name, phone, location, dog_name, service, message — copy its Template ID below
   // 4. Find your Public Key under Account > API Keys — copy it below
   // 5. Set OWNER_EMAIL to the inbox that should receive new requests
   var EMAILJS_PUBLIC_KEY = "K8d2oCt5E9oOxoriy";
@@ -799,6 +809,8 @@
     var msg = document.getElementById('formMsg');
 
     var ownerName = document.getElementById('name').value;
+    var phone = document.getElementById('phone').value;
+    var location = document.getElementById('location').value;
     var dogName = document.getElementById('dogname').value;
     var service = document.getElementById('service').value;
     var details = document.getElementById('message').value;
@@ -808,6 +820,8 @@
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         to_email: OWNER_EMAIL,
         from_name: ownerName,
+        phone: phone,
+        location: location,
         dog_name: dogName || "-",
         service: service,
         message: details || "-"
